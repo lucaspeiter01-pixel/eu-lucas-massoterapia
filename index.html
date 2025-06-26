@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lucas Peiter | Terapia Integrativa e Complementar</title>
+    <meta
+      name="description"
+      content="Encontre equilíbrio e bem-estar através de terapias que harmonizam corpo, mente e espírito."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Substituído o @tailwindcss/browser -->
+
+    <!-- Scripts (Alpine.js primeiro!) -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"
+    ></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .text-shadow {
+        text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Adicionado para corrigir o modal */
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body class="bg-[#F2EAE4] text-[#1f2937] antialiased">
+    <div
+      x-data="{
+      isModalOpen: false,
+      servicoSelecionado: '',
+      nomeCliente: '',
+      dataAgendamento: '',
+      horarioAgendamento: '',
+      today: new Date().toISOString().split('T')[0],
+      
+      openModal(servico) {
+        this.servicoSelecionado = servico;
+        this.isModalOpen = true;
+      },
+      
+      handlePreAgendamento() {
+        if (!this.nomeCliente) {
+          alert('Por favor, preencha seu nome.');
+          return;
+        }
+        const numeroWhatsapp = '5551999291480';
+        let texto = `Olá, Lucas! Gostaria de fazer um pré-agendamento para ${this.servicoSelecionado}.`;
+        texto += `\n\n*Nome:* ${this.nomeCliente}`;
+        if (this.dataAgendamento) texto += `\n*Data Sugerida:* ${this.dataAgendamento}`;
+        if (this.horarioAgendamento) texto += `\n*Horário Sugerido:* ${this.horarioAgendamento}`;
+        const whatsappUrl = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`;
+        window.open(whatsappUrl, '_blank');
+        this.isModalOpen = false;
+      }
+    }"
+    >
+      <header
+        class="relative flex items-center justify-center h-screen overflow-hidden"
+      >
+        <div class="absolute inset-0 z-0">
+          <img
+            src="/imgs/lucas-logo-2.jpeg"
+            alt="Ambiente de massoterapia sereno"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="absolute inset-0 bg-[#41590C] bg-opacity-40 z-10"></div>
+        <div class="relative z-20 text-center text-white px-4 sm:px-6">
+          <h1
+            class="text-4xl md:text-6xl font-semibold leading-tight text-shadow"
+          >
+            Equilíbrio para Corpo e Alma
+          </h1>
+          <p
+            class="mt-4 max-w-xl mx-auto text-lg md:text-xl font-light text-shadow"
+          >
+            Descubra um refúgio de paz e acolhimento para restaurar sua energia
+            e bem-estar.
+          </p>
+          <a
+            href="#servicos"
+            class="btn bg-white text-[#41590C] hover:bg-[#F2EAE4] border-none rounded-full px-8 mt-8 font-medium normal-case"
+          >
+            Conhecer Terapias
+          </a>
+        </div>
+      </header>
+
+      <main>
+        <section id="filosofia" class="py-16 md:py-24 bg-[#41590C] text-white">
+          <div class="container mx-auto px-4 sm:px-6 text-center max-w-3xl">
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">
+              Cuidar da energia é cuidar da vida
+            </h2>
+            <p class="mt-6 text-lg font-light opacity-80">
+              Meu propósito é ser um canal de auxílio para sua saúde integral.
+              Acredito que o equilíbrio entre corpo, mente e espírito é a chave
+              para uma vida plena, e utilizo técnicas terapêuticas para
+              facilitar seu processo de cura e autoconhecimento.
+            </p>
+          </div>
+        </section>
+
+        <section id="servicos" class="py-16 md:py-24 bg-[#F2EAE4]">
+          <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-3xl mx-auto">
+              <h2
+                class="text-3xl md:text-4xl font-semibold tracking-tight text-[#41590C]"
+              >
+                Terapias para sua Harmonia
+              </h2>
+              <p class="mt-4 text-lg text-black/70">
+                Cada técnica é aplicada com profissionalismo e acolhimento,
+                visando seu equilíbrio integral.
+              </p>
+            </div>
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+              <article
+                class="card bg-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div class="card-body items-center text-center p-8">
+                  <i
+                    data-lucide="hand-helping"
+                    class="text-[#A69668] w-12 h-12"
+                  ></i>
+                  <h3 class="card-title text-2xl font-medium mt-4">
+                    Reiki Usui
+                  </h3>
+                  <p class="mt-2 font-light">
+                    Canalização de energia vital para reequilíbrio, alívio de
+                    estresse e promoção da paz interior.
+                  </p>
+                  <div class="card-actions mt-6">
+                    <button
+                      @click="openModal('Reiki Usui')"
+                      class="btn bg-[#41590C] hover:bg-[#35480a] text-white rounded-full px-6"
+                    >
+                      Quero Agendar
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article
+                class="card bg-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div class="card-body items-center text-center p-8">
+                  <i
+                    data-lucide="brain-circuit"
+                    class="text-[#A69668] w-12 h-12"
+                  ></i>
+                  <h3 class="card-title text-2xl font-medium mt-4">
+                    Auriculoterapia
+                  </h3>
+                  <p class="mt-2 font-light">
+                    Estímulo de pontos reflexos na orelha para tratar
+                    disfunções, aliviar dores e restaurar o equilíbrio do corpo.
+                  </p>
+                  <div class="card-actions mt-6">
+                    <button
+                      @click="openModal('Auriculoterapia')"
+                      class="btn bg-[#41590C] hover:bg-[#35480a] text-white rounded-full px-6"
+                    >
+                      Quero Agendar
+                    </button>
+                  </div>
+                </div>
+              </article>
+              <article
+                class="card bg-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+              >
+                <div class="card-body items-center text-center p-8">
+                  <i data-lucide="waves" class="text-[#A69668] w-12 h-12"></i>
+                  <h3 class="card-title text-2xl font-medium mt-4">
+                    Drenagem Linfática
+                  </h3>
+                  <p class="mt-2 font-light">
+                    Toques suaves para reduzir inchaço, desintoxicar o organismo
+                    e fortalecer o sistema imunológico.
+                  </p>
+                  <div class="card-actions mt-6">
+                    <button
+                      @click="openModal('Drenagem Linfática')"
+                      class="btn bg-[#41590C] hover:bg-[#35480a] text-white rounded-full px-6"
+                    >
+                      Quero Agendar
+                    </button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer
+        class="footer p-10 bg-[#6B7332] text-white flex flex-col items-center text-center space-y-8 md:flex-row md:justify-between md:items-start md:text-left md:space-y-0"
+      >
+        <aside class="flex flex-col items-center md:items-start">
+          <h3 class="font-semibold text-lg">Lucas Peiter</h3>
+          <p class="font-light opacity-80">
+            Terapia Integrativa e Complementar<br />CNPJ: 46.302.671/0001-08<br />Rua
+            Lauro Linhares, 728, Sala 301, Trindade - Florianópolis/SC
+          </p>
+        </aside>
+
+        <div class="flex flex-col items-center md:items-start">
+          <div class="w-full max-w-sm md:max-w-md lg:max-w-lg mb-4">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d442.0313311833394!2d-48.5250855!3d-27.5857577!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9527385c6ccbc32b%3A0xc1b0ccec27780ba!2sR.%20Lauro%20Linhares%2C%20728%20-%20Trindade%2C%20Florian%C3%B3polis%20-%20SC%2C%2088036-001!5e0!3m2!1spt-BR!2sbr!4v1750897954675!5m2!1spt-BR!2sbr"
+              class="w-full h-64 rounded-lg border-2 border-white/20"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <nav>
+            <h6 class="footer-title opacity-100">Social</h6>
+            <a
+              href="https://instagram.com/lucasmassofloripa"
+              target="_blank"
+              class="link link-hover flex items-center gap-2 font-light opacity-80 hover:opacity-100"
+            >
+              <i data-lucide="instagram" class="w-5 h-5"></i> @lucasmassofloripa
+            </a>
+          </nav>
+        </div>
+      </footer>
+
+      <div
+        x-show="isModalOpen"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+        style="display: none"
+      >
+        <div class="modal-box bg-white" @click.away="isModalOpen = false">
+          <button
+            @click="isModalOpen = false"
+            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+          >
+            ✕
+          </button>
+          <h3 class="font-bold text-lg mb-4">
+            Pré-agendamento para
+            <span class="text-[#41590C]" x-text="servicoSelecionado"></span>
+          </h3>
+          <form @submit.prevent="handlePreAgendamento" class="space-y-4">
+            <label class="form-control w-full">
+              <div class="label">
+                <span class="label-text">Seu Nome e Sobrenome*</span>
+              </div>
+              <input
+                x-model="nomeCliente"
+                type="text"
+                placeholder="Digite seu nome completo"
+                class="input input-bordered w-full"
+                required
+              />
+            </label>
+            <label class="form-control w-full">
+              <div class="label">
+                <span class="label-text">Data de Preferência (opcional)</span>
+              </div>
+              <input
+                x-model="dataAgendamento"
+                :min="today"
+                type="date"
+                class="input input-bordered w-full"
+              />
+            </label>
+            <label class="form-control w-full">
+              <div class="label">
+                <span class="label-text"
+                  >Horário de preferência (opcional)</span
+                >
+              </div>
+              <select
+                x-model="horarioAgendamento"
+                class="select select-bordered w-full font-light"
+              >
+                <option disabled selected value="">Selecione um horário</option>
+                <option value="08:00">08:00</option>
+                <option value="08:30">08:30</option>
+                <option value="09:00">09:00</option>
+                <option value="09:30">09:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+              </select>
+            </label>
+            <div class="modal-action mt-6">
+              <button
+                type="submit"
+                class="btn bg-[#41590C] hover:bg-[#35480a] w-full text-white"
+              >
+                Enviar via WhatsApp
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("alpine:init", () => {
+        // Inicializa os ícones após o Alpine estar pronto
+        lucide.createIcons();
+      });
+    </script>
+  </body>
+</html>

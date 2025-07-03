@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Agendamento | Lucas Peiter - Terapia Integrativa e Complementar</title>
-  <meta name="description" content="Agende sua sessão de terapias holísticas em Florianópolis. Reiki, Auriculoterapia, Drenagem Linfática e mais." />
-  
+  <meta name="description"
+    content="Agende sua sessão de terapias holísticas em Florianópolis. Reiki, Auriculoterapia, Drenagem Linfática e mais." />
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lucaspeiter.vercel.app" />
   <meta property="og:title" content="Agendamento Online | Lucas Peiter - Terapias Holísticas" />
-  <meta property="og:description" content="Agende sua sessão de terapias holísticas em Florianópolis. Reiki, Auriculoterapia, Drenagem Linfática e mais." />
+  <meta property="og:description"
+    content="Agende sua sessão de terapias holísticas em Florianópolis. Reiki, Auriculoterapia, Drenagem Linfática e mais." />
   <meta property="og:image" content="/imgs/lucas_logo_1.jpeg" />
-  
+
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content="https://lucaspeiter.vercel.app" />
   <meta property="twitter:title" content="Agendamento Online | Lucas Peiter - Terapias Holísticas" />
-  <meta property="twitter:description" content="Agende sua sessão de terapias holísticas em Florianópolis. Reiki, Auriculoterapia, Drenagem Linfática e mais." />
+  <meta property="twitter:description"
+    content="Agende sua sessão de terapias holísticas em Florianópolis. Reiki, Auriculoterapia, Drenagem Linfática e mais." />
   <meta property="twitter:image" content="/imgs/lucas-logo-2.jpeg" />
-  
+
   <!-- Schema.org markup -->
   <script type="application/ld+json">
   {
@@ -51,106 +55,131 @@
     ]
   }
   </script>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  
+
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
   <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  
+
   <style>
     body {
       font-family: "Inter", sans-serif;
       background-color: #F2EAE4;
       color: #1f2937;
     }
+
     .text-shadow {
       text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
     }
+
     [data-aos] {
       opacity: 0;
       transition-property: opacity, transform;
     }
+
     .progress-bar {
-      height: 8px;
-      background-color: #e0e0e0;
-      border-radius: 4px;
-      overflow: hidden;
+      height: 6px;
+      background-color: #e5e7eb;
+      border-radius: 9999px;
     }
+
     .progress-fill {
       height: 100%;
       background-color: #41590C;
-      transition: width 0.4s ease;
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
     .service-card {
       transition: all 0.3s ease;
       border: 2px solid transparent;
     }
+
     .service-card.selected {
       border-color: #41590C;
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
     }
+
     .accordion-content {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease;
     }
+
     .accordion-open .accordion-content {
       max-height: 1000px;
     }
+
     .btn-primary {
       background-color: #41590C;
       color: white;
       border: none;
       transition: all 0.3s ease;
     }
+
     .btn-primary:hover {
       background-color: #35480a;
       transform: translateY(-2px);
     }
+
     .form-control:focus {
       border-color: #41590C;
       box-shadow: 0 0 0 3px rgba(65, 89, 12, 0.2);
     }
+
     .step {
       display: none;
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
+
     .step.active {
       display: block;
       opacity: 1;
       transform: translateY(0);
     }
+
     @media (max-width: 768px) {
       .step-content {
         padding: 1.5rem;
       }
+
       .progress-container {
         margin: 0 1rem;
       }
     }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    footer {
+      margin-top: auto;
+    }
   </style>
 </head>
+
 <body>
   <div x-data="agendamento">
     <!-- Progress Bar -->
     <div class="progress-container mb-8 sticky top-0 z-50 bg-white shadow-sm">
-      <div class="progress-bar">
-        <div class="progress-fill" :style="'width: ' + (currentStep / 8 * 100) + '%;'"></div>
+      <div class="flex justify-between items-center mb-2 px-2">
+        <span class="text-sm font-medium text-[#41590C]" x-text="stepNames[currentStep - 1]"></span>
+        <span class="text-sm font-medium text-gray-600" x-text="Math.round((currentStep / 8) * 100) + '%'"></span>
       </div>
-      <div class="flex justify-between text-xs text-gray-600 px-2 py-1">
-        <span>Passo <span x-text="currentStep"></span> de 8</span>
-        <span x-text="stepNames[currentStep - 1]"></span>
+      <div class="progress-bar w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+        <div class="progress-fill h-full bg-[#41590C] transition-all duration-500 ease-out"
+          :style="'width: ' + (currentStep / 8 * 100) + '%;'"></div>
       </div>
     </div>
-
     <!-- Hero Section -->
     <div class="step active" id="step0">
       <header class="relative flex items-center justify-center min-h-screen overflow-hidden">
@@ -166,12 +195,27 @@
             Descubra um refúgio de paz e acolhimento para restaurar sua energia
             e bem-estar.
           </p>
-          <button
-            @click="startAgendamento()"
-            class="btn btn-primary mt-8 px-8 py-3 rounded-full text-lg font-medium"
-          >
+          <button @click="startAgendamento()" class="btn btn-primary mt-8 px-8 py-3 rounded-full text-lg font-medium">
             Agendar Minha Sessão
           </button>
+          <div class="mt-16 max-w-3xl mx-auto bg-white bg-opacity-90 rounded-xl p-6 text-gray-800">
+            <h2 class="text-2xl font-semibold text-[#41590C] mb-4">Sobre Lucas Peiter</h2>
+            <div class="space-y-4 text-justify">
+              <p>Com 30 anos de experiência em terapias integrativas, sou especialista em promover bem-estar físico e
+                emocional através de técnicas holísticas. Minha trajetória inclui:</p>
+
+              <ul class="list-disc pl-5 space-y-2">
+                <li>Criação do consultório de Fisioterapia na Saúde da Família em Florianópolis, com foco na saúde da
+                  mulher e infantil</li>
+                <li>Desenvolvimento de programas corporativos como "Trabalho é Mais Saúde" e "Cuidar é Prosperar",
+                  levando Reiki e ginástica laboral para empresas</li>
+                <li>Coordenação do projeto "INSPIRAR", oferecendo terapias integrativas para comunidades indígenas</li>
+              </ul>
+
+              <p>Como Bacharel em Fisioterapia e terapeuta certificado pela ABRATH, combino conhecimento científico com
+                abordagens complementares para resultados transformadores.</p>
+            </div>
+          </div>
         </div>
       </header>
     </div>
@@ -183,26 +227,17 @@
           <h2 class="text-3xl font-semibold text-[#41590C]">Como podemos chamar você?</h2>
           <p class="mt-2 text-gray-600">Comece seu caminho para o equilíbrio preenchendo seu nome</p>
         </div>
-        
+
         <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
           <div class="mb-6">
             <label class="block text-gray-700 mb-2" for="nome">Nome Completo</label>
-            <input
-              x-model="nomeCompleto"
-              type="text"
-              id="nome"
+            <input x-model="nomeCompleto" type="text" id="nome"
               class="form-control w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#41590C]"
-              placeholder="Digite seu nome completo"
-              required
-            />
+              placeholder="Digite seu nome completo" required />
           </div>
-          
+
           <div class="flex justify-end">
-            <button
-              @click="nextStep()"
-              class="btn btn-primary px-6 py-3 rounded-full"
-              :disabled="!nomeCompleto"
-            >
+            <button @click="nextStep()" class="btn btn-primary px-6 py-3 rounded-full" :disabled="!nomeCompleto">
               Próximo
             </button>
           </div>
@@ -217,34 +252,21 @@
           <h2 class="text-3xl font-semibold text-[#41590C]">Qual é a sua idade?</h2>
           <p class="mt-2 text-gray-600">Para melhor atendê-lo(a), precisamos confirmar sua idade</p>
         </div>
-        
+
         <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
           <div class="mb-6">
             <label class="block text-gray-700 mb-2" for="idade">Sua Idade</label>
-            <input
-              x-model="idade"
-              type="number"
-              min="18"
-              id="idade"
+            <input x-model="idade" type="number" min="18" id="idade"
               class="form-control w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#41590C]"
-              placeholder="Digite sua idade"
-              required
-            />
+              placeholder="Digite sua idade" required />
             <p class="text-sm text-gray-500 mt-1">É necessário ter 18 anos ou mais para agendar</p>
           </div>
-          
+
           <div class="flex justify-between">
-            <button
-              @click="prevStep()"
-              class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300"
-            >
+            <button @click="prevStep()" class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300">
               Voltar
             </button>
-            <button
-              @click="nextStep()"
-              class="btn btn-primary px-6 py-3 rounded-full"
-              :disabled="!idade || idade < 18"
-            >
+            <button @click="nextStep()" class="btn btn-primary px-6 py-3 rounded-full" :disabled="!idade || idade < 18">
               Próximo
             </button>
           </div>
@@ -259,90 +281,53 @@
           <h2 class="text-3xl font-semibold text-[#41590C]">Onde você mora?</h2>
           <p class="mt-2 text-gray-600">Informe seu CEP para encontrarmos seu endereço</p>
         </div>
-        
+
         <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
           <div class="mb-6">
             <label class="block text-gray-700 mb-2" for="cep">CEP</label>
             <div class="flex">
-              <input
-                x-model="cep"
-                @input="formatarCEP"
-                type="text"
-                id="cep"
+              <input x-model="cep" @input="formatarCEP" type="text" id="cep"
                 class="form-control w-full px-4 py-3 border rounded-lg rounded-r-none focus:outline-none focus:ring-2 focus:ring-[#41590C]"
-                placeholder="00000-000"
-                required
-              />
-              <button
-                @click="buscarCEP()"
-                type="button"
-                class="btn btn-primary px-4 py-3 rounded-l-none"
-              >
+                placeholder="00000-000" required />
+              <button @click="buscarCEP()" type="button" class="btn btn-primary px-4 py-3 rounded-l-none">
                 Buscar
               </button>
             </div>
           </div>
-          
+
           <div x-show="enderecoCarregado" class="space-y-4">
             <div>
               <label class="block text-gray-700 mb-2" for="logradouro">Endereço</label>
-              <input
-                x-model="endereco.logradouro"
-                type="text"
-                id="logradouro"
-                class="form-control w-full px-4 py-3 border rounded-lg"
-                readonly
-              />
+              <input x-model="endereco.logradouro" type="text" id="logradouro"
+                class="form-control w-full px-4 py-3 border rounded-lg" readonly />
             </div>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label class="block text-gray-700 mb-2" for="bairro">Bairro</label>
-                <input
-                  x-model="endereco.bairro"
-                  type="text"
-                  id="bairro"
-                  class="form-control w-full px-4 py-3 border rounded-lg"
-                  readonly
-                />
+                <input x-model="endereco.bairro" type="text" id="bairro"
+                  class="form-control w-full px-4 py-3 border rounded-lg" readonly />
               </div>
-              
+
               <div>
                 <label class="block text-gray-700 mb-2" for="cidade">Cidade</label>
-                <input
-                  x-model="endereco.localidade"
-                  type="text"
-                  id="cidade"
-                  class="form-control w-full px-4 py-3 border rounded-lg"
-                  readonly
-                />
+                <input x-model="endereco.localidade" type="text" id="cidade"
+                  class="form-control w-full px-4 py-3 border rounded-lg" readonly />
               </div>
-              
+
               <div>
                 <label class="block text-gray-700 mb-2" for="uf">Estado</label>
-                <input
-                  x-model="endereco.uf"
-                  type="text"
-                  id="uf"
-                  class="form-control w-full px-4 py-3 border rounded-lg"
-                  readonly
-                />
+                <input x-model="endereco.uf" type="text" id="uf" class="form-control w-full px-4 py-3 border rounded-lg"
+                  readonly />
               </div>
             </div>
           </div>
-          
+
           <div class="flex justify-between mt-8">
-            <button
-              @click="prevStep()"
-              class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300"
-            >
+            <button @click="prevStep()" class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300">
               Voltar
             </button>
-            <button
-              @click="nextStep()"
-              class="btn btn-primary px-6 py-3 rounded-full"
-              :disabled="!enderecoCarregado"
-            >
+            <button @click="nextStep()" class="btn btn-primary px-6 py-3 rounded-full" :disabled="!enderecoCarregado">
               Próximo
             </button>
           </div>
@@ -357,34 +342,22 @@
           <h2 class="text-3xl font-semibold text-[#41590C]">Como podemos entrar em contato?</h2>
           <p class="mt-2 text-gray-600">Informe seu melhor número para confirmarmos seu agendamento</p>
         </div>
-        
+
         <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
           <div class="mb-6">
             <label class="block text-gray-700 mb-2" for="telefone">Telefone ou WhatsApp</label>
-            <input
-              x-model="telefone"
-              @input="formatarTelefone"
-              type="tel"
-              id="telefone"
+            <input x-model="telefone" @input="formatarTelefone" type="tel" id="telefone"
               class="form-control w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#41590C]"
-              placeholder="(00) 00000-0000"
-              required
-            />
+              placeholder="(00) 00000-0000" required />
             <p class="text-sm text-gray-500 mt-1">Enviaremos a confirmação por este número</p>
           </div>
-          
+
           <div class="flex justify-between">
-            <button
-              @click="prevStep()"
-              class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300"
-            >
+            <button @click="prevStep()" class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300">
               Voltar
             </button>
-            <button
-              @click="nextStep()"
-              class="btn btn-primary px-6 py-3 rounded-full"
-              :disabled="!telefone || telefone.length < 14"
-            >
+            <button @click="nextStep()" class="btn btn-primary px-6 py-3 rounded-full"
+              :disabled="!telefone || telefone.length < 14">
               Próximo
             </button>
           </div>
@@ -399,52 +372,32 @@
           <h2 class="text-3xl font-semibold text-[#41590C]">Qual terapia você deseja?</h2>
           <p class="mt-2 text-gray-600">Selecione uma ou mais terapias para seu agendamento</p>
         </div>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <template x-for="(servico, index) in servicos" :key="index">
-            <div 
-              class="service-card bg-white rounded-xl shadow-md p-6 cursor-pointer"
-              :class="{ 'selected': servico.selecionado }"
-              @click="servico.selecionado = !servico.selecionado"
-            >
+            <div class="service-card bg-white rounded-xl shadow-md p-6 cursor-pointer"
+              :class="{ 'selected': servico.selecionado }" @click="servico.selecionado = !servico.selecionado">
               <div class="flex items-start">
-                <input 
-                  type="checkbox" 
-                  class="mr-3 mt-1"
-                  :checked="servico.selecionado"
-                  @click.stop
-                />
+                <input type="checkbox" class="mr-3 mt-1" :checked="servico.selecionado" @click.stop />
                 <div class="flex-1">
                   <h3 class="text-xl font-semibold text-[#41590C]" x-text="servico.nome"></h3>
-                  
+
                   <div class="mt-4">
-                    <button 
-                      @click.stop="servico.accordionOpen = !servico.accordionOpen"
+                    <button @click.stop="servico.accordionOpen = !servico.accordionOpen"
                       class="text-sm font-medium text-[#A69668] flex items-center"
-                      :aria-expanded="servico.accordionOpen"
-                    >
+                      :aria-expanded="servico.accordionOpen">
                       <span>Saiba mais</span>
-                      <svg 
-                        class="ml-1 w-4 h-4 transition-transform" 
-                        :class="{ 'rotate-180': servico.accordionOpen }" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24"
-                      >
+                      <svg class="ml-1 w-4 h-4 transition-transform" :class="{ 'rotate-180': servico.accordionOpen }"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                       </svg>
                     </button>
-                    
-                    <div 
-                      x-show="servico.accordionOpen"
-                      class="mt-2 text-gray-600 text-sm overflow-hidden"
-                      x-transition:enter="transition ease-out duration-300"
-                      x-transition:enter-start="opacity-0 max-h-0"
+
+                    <div x-show="servico.accordionOpen" class="mt-2 text-gray-600 text-sm overflow-hidden"
+                      x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 max-h-0"
                       x-transition:enter-end="opacity-100 max-h-screen"
                       x-transition:leave="transition ease-in duration-200"
-                      x-transition:leave-start="opacity-100 max-h-screen"
-                      x-transition:leave-end="opacity-0 max-h-0"
-                    >
+                      x-transition:leave-start="opacity-100 max-h-screen" x-transition:leave-end="opacity-0 max-h-0">
                       <p x-text="servico.descricao" class="pt-2"></p>
                     </div>
                   </div>
@@ -453,19 +406,13 @@
             </div>
           </template>
         </div>
-        
+
         <div class="flex justify-between mt-10">
-          <button
-            @click="prevStep()"
-            class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300"
-          >
+          <button @click="prevStep()" class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300">
             Voltar
           </button>
-          <button
-            @click="nextStep()"
-            class="btn btn-primary px-6 py-3 rounded-full"
-            :disabled="servicosSelecionados.length === 0"
-          >
+          <button @click="nextStep()" class="btn btn-primary px-6 py-3 rounded-full"
+            :disabled="servicosSelecionados.length === 0">
             Próximo
           </button>
         </div>
@@ -479,31 +426,22 @@
           <h2 class="text-3xl font-semibold text-[#41590C]">Escolha data e horário</h2>
           <p class="mt-2 text-gray-600">Selecione quando deseja receber sua terapia</p>
         </div>
-        
+
         <div class="bg-white rounded-xl shadow-lg p-6">
           <template x-for="(servico, index) in servicosSelecionados" :key="index">
             <div class="mb-8 p-4 border-b border-gray-100">
               <h3 class="text-xl font-semibold text-[#41590C]" x-text="servico.nome"></h3>
-              
+
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                 <div>
                   <label class="block text-gray-700 mb-2">Data</label>
-                  <input
-                    x-model="servico.data"
-                    type="date"
-                    :min="minDate"
-                    class="form-control w-full px-4 py-3 border rounded-lg"
-                    required
-                  />
+                  <input x-model="servico.data" type="date" :min="minDate"
+                    class="form-control w-full px-4 py-3 border rounded-lg" required />
                 </div>
-                
+
                 <div>
                   <label class="block text-gray-700 mb-2">Horário</label>
-                  <select
-                    x-model="servico.horario"
-                    class="form-control w-full px-4 py-3 border rounded-lg"
-                    required
-                  >
+                  <select x-model="servico.horario" class="form-control w-full px-4 py-3 border rounded-lg" required>
                     <option value="">Selecione um horário</option>
                     <template x-for="horario in horariosDisponiveis">
                       <option :value="horario" x-text="horario"></option>
@@ -513,19 +451,12 @@
               </div>
             </div>
           </template>
-          
+
           <div class="flex justify-between mt-8">
-            <button
-              @click="prevStep()"
-              class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300"
-            >
+            <button @click="prevStep()" class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300">
               Voltar
             </button>
-            <button
-              @click="nextStep()"
-              class="btn btn-primary px-6 py-3 rounded-full"
-              :disabled="!datasValidas"
-            >
+            <button @click="nextStep()" class="btn btn-primary px-6 py-3 rounded-full" :disabled="!datasValidas">
               Próximo
             </button>
           </div>
@@ -540,29 +471,18 @@
           <h2 class="text-3xl font-semibold text-[#41590C]">Como prefere pagar?</h2>
           <p class="mt-2 text-gray-600">Escolha a opção de pagamento que melhor lhe convém</p>
         </div>
-        
+
         <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
           <div class="space-y-4">
             <div>
-              <input 
-                type="radio" 
-                id="pagar-agora" 
-                name="pagamento" 
-                value="agora" 
-                x-model="formaPagamento"
-                class="hidden"
-              />
-              <label 
-                for="pagar-agora" 
+              <input type="radio" id="pagar-agora" name="pagamento" value="agora" x-model="formaPagamento"
+                class="hidden" />
+              <label for="pagar-agora"
                 class="flex items-center p-4 border rounded-lg cursor-pointer hover:border-[#41590C]"
-                :class="{ 'border-[#41590C] bg-green-50': formaPagamento === 'agora' }"
-              >
+                :class="{ 'border-[#41590C] bg-green-50': formaPagamento === 'agora' }">
                 <div class="mr-3">
                   <div class="w-6 h-6 border-2 border-gray-300 rounded-full flex items-center justify-center">
-                    <div 
-                      class="w-3 h-3 rounded-full bg-[#41590C]" 
-                      x-show="formaPagamento === 'agora'"
-                    ></div>
+                    <div class="w-3 h-3 rounded-full bg-[#41590C]" x-show="formaPagamento === 'agora'"></div>
                   </div>
                 </div>
                 <div>
@@ -571,27 +491,16 @@
                 </div>
               </label>
             </div>
-            
+
             <div>
-              <input 
-                type="radio" 
-                id="pagar-depois" 
-                name="pagamento" 
-                value="depois" 
-                x-model="formaPagamento"
-                class="hidden"
-              />
-              <label 
-                for="pagar-depois" 
+              <input type="radio" id="pagar-depois" name="pagamento" value="depois" x-model="formaPagamento"
+                class="hidden" />
+              <label for="pagar-depois"
                 class="flex items-center p-4 border rounded-lg cursor-pointer hover:border-[#41590C]"
-                :class="{ 'border-[#41590C] bg-green-50': formaPagamento === 'depois' }"
-              >
+                :class="{ 'border-[#41590C] bg-green-50': formaPagamento === 'depois' }">
                 <div class="mr-3">
                   <div class="w-6 h-6 border-2 border-gray-300 rounded-full flex items-center justify-center">
-                    <div 
-                      class="w-3 h-3 rounded-full bg-[#41590C]" 
-                      x-show="formaPagamento === 'depois'"
-                    ></div>
+                    <div class="w-3 h-3 rounded-full bg-[#41590C]" x-show="formaPagamento === 'depois'"></div>
                   </div>
                 </div>
                 <div>
@@ -601,41 +510,36 @@
               </label>
             </div>
           </div>
-          
+
           <div class="mt-10 bg-green-50 border border-green-200 rounded-lg p-4">
             <h3 class="font-semibold text-green-800 flex items-center">
               <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
               </svg>
               Grupo de Terapias Gratuitas
             </h3>
             <p class="text-green-700 mt-2">
-              Junte-se ao nosso grupo de WhatsApp para receber Reiki gratuito três vezes por semana e conteúdos exclusivos sobre terapias holísticas.
+              Junte-se ao nosso grupo de WhatsApp para receber Reiki gratuito três vezes por semana e conteúdos
+              exclusivos sobre terapias holísticas.
             </p>
-            <a 
-              href="https://chat.whatsapp.com/SEU_LINK_DO_GRUPO" 
-              target="_blank"
-              class="btn btn-primary mt-3 inline-flex items-center"
-            >
+            <a href="https://chat.whatsapp.com/SEU_LINK_DO_GRUPO" target="_blank"
+              class="btn btn-primary mt-3 inline-flex items-center">
               Entrar no Grupo Gratuito
               <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
               </svg>
             </a>
           </div>
-          
+
           <div class="flex justify-between mt-8">
-            <button
-              @click="prevStep()"
-              class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300"
-            >
+            <button @click="prevStep()" class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300">
               Voltar
             </button>
-            <button
-              @click="finalizarAgendamento()"
-              class="btn btn-primary px-6 py-3 rounded-full"
-              :disabled="!formaPagamento"
-            >
+            <button @click="finalizarAgendamento()" class="btn btn-primary px-6 py-3 rounded-full"
+              :disabled="!formaPagamento">
               Finalizar Agendamento
             </button>
           </div>
@@ -649,21 +553,23 @@
         <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
           <div class="text-green-600 mb-6">
             <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd" />
             </svg>
           </div>
-          
+
           <h2 class="text-3xl md:text-4xl font-semibold text-[#41590C] mb-6">
             Agendamento Confirmado!
           </h2>
-          
+
           <p class="text-xl text-gray-700 mb-8">
             Obrigado, <span class="font-semibold" x-text="nomeCompleto"></span>! Seu agendamento foi confirmado.
           </p>
-          
+
           <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-8 text-left">
             <h3 class="font-semibold text-green-800 text-lg mb-4">Detalhes do Agendamento</h3>
-            
+
             <div class="space-y-3">
               <div class="flex">
                 <span class="font-medium text-gray-700 w-32">Serviços:</span>
@@ -673,45 +579,45 @@
                   </template>
                 </ul>
               </div>
-              
+
               <div class="flex">
                 <span class="font-medium text-gray-700 w-32">Endereço:</span>
-                <span x-text="endereco.logradouro + ', ' + endereco.bairro + ' - ' + endereco.localidade + '/' + endereco.uf"></span>
+                <span
+                  x-text="endereco.logradouro + ', ' + endereco.bairro + ' - ' + endereco.localidade + '/' + endereco.uf"></span>
               </div>
-              
+
               <div class="flex">
                 <span class="font-medium text-gray-700 w-32">Telefone:</span>
                 <span x-text="telefone"></span>
               </div>
-              
+
               <div class="flex">
                 <span class="font-medium text-gray-700 w-32">Pagamento:</span>
-                <span x-text="formaPagamento === 'agora' ? 'Online (será redirecionado)' : 'Presencial na hora do atendimento'"></span>
+                <span
+                  x-text="formaPagamento === 'agora' ? 'Online (será redirecionado)' : 'Presencial na hora do atendimento'"></span>
               </div>
             </div>
           </div>
-          
+
           <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
             <h3 class="font-semibold text-blue-800 text-lg mb-3">Mensagem de Gratidão</h3>
             <p class="text-blue-700 italic">
-              "A gratidão é a memória do coração. Agradeço profundamente por escolher compartilhar esta jornada de cura e autoconhecimento comigo. Que cada sessão seja um passo em direção ao seu equilíbrio pleno, e que a energia de cura que receber possa multiplicar-se em sua vida. Estou verdadeiramente honrado por poder contribuir com seu bem-estar."
+              "A gratidão é a memória do coração. Agradeço profundamente por escolher compartilhar esta jornada de cura
+              e autoconhecimento comigo. Que cada sessão seja um passo em direção ao seu equilíbrio pleno, e que a
+              energia de cura que receber possa multiplicar-se em sua vida. Estou verdadeiramente honrado por poder
+              contribuir com seu bem-estar."
             </p>
             <p class="text-blue-800 mt-4 font-medium">- Lucas Peiter</p>
           </div>
-          
+
           <div class="flex flex-col sm:flex-row justify-center gap-4 mt-10">
-            <a 
-              href="https://chat.whatsapp.com/SEU_LINK_DO_GRUPO" 
-              target="_blank"
-              class="btn bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full flex items-center justify-center"
-            >
+            <a href="https://chat.whatsapp.com/SEU_LINK_DO_GRUPO" target="_blank"
+              class="btn bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full flex items-center justify-center">
               Entrar no Grupo Gratuito
             </a>
-            
-            <a 
-              href="https://lucaspeiter.vercel.app" 
-              class="btn bg-[#41590C] hover:bg-[#35480a] text-white px-6 py-3 rounded-full"
-            >
+
+            <a href="https://lucaspeiter.vercel.app"
+              class="btn bg-[#41590C] hover:bg-[#35480a] text-white px-6 py-3 rounded-full">
               Voltar ao Site Principal
             </a>
           </div>
@@ -720,31 +626,39 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-[#6B7332] text-white py-12">
+    <footer class="bg-[#6B7332] text-white py-12 mt-auto">
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="mb-6 md:mb-0">
-            <h3 class="text-xl font-semibold">Lucas Peiter</h3>
+          <div class="mb-6 md:mb-0 text-center md:text-left">
+            <h3 class="text-xl font-semibold">Dr. Lucas Peiter</h3>
+            <h4 class="text-xl font-semibold">CRTH 14666</h4>
             <p class="mt-2">Terapia Integrativa e Complementar</p>
             <p class="mt-1">CNPJ: 46.302.671/0001-08</p>
             <p class="mt-1">Rua Lauro Linhares, 728, Sala 301, Trindade - Florianópolis/SC</p>
           </div>
-          
-          <div>
-            <a 
-              href="https://instagram.com/lucasmassofloripa" 
-              target="_blank"
-              class="flex items-center text-white hover:text-gray-200"
-            >
-              <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+
+          <div class="flex space-x-4">
+            <a href="https://facebook.com/seu_perfil" target="_blank" class="text-white hover:text-gray-200">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
               </svg>
-              @lucasmassofloripa
+            </a>
+            <a href="https://instagram.com/lucasmassofloripa" target="_blank" class="text-white hover:text-gray-200">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="https://tiktok.com/@seu_perfil" target="_blank" class="text-white hover:text-gray-200">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+              </svg>
             </a>
           </div>
         </div>
       </div>
-    </footer>
   </div>
 
   <script>
@@ -762,7 +676,7 @@
           "Pagamento",
           "Confirmação"
         ],
-        
+
         // Dados do formulário
         nomeCompleto: "",
         idade: "",
@@ -775,7 +689,7 @@
           localidade: "",
           uf: ""
         },
-        
+
         // Serviços disponíveis
         servicos: [
           {
@@ -863,62 +777,62 @@
             accordionOpen: false
           }
         ],
-        
+
         // Horários disponíveis
         horariosDisponiveis: [
-          "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", 
-          "11:00", "11:30", "13:00", "13:30", "14:00", "14:30", 
-          "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", 
+          "08:00", "08:30", "09:00", "09:30", "10:00", "10:30",
+          "11:00", "11:30", "13:00", "13:30", "14:00", "14:30",
+          "15:00", "15:30", "16:00", "16:30", "17:00", "17:30",
           "18:00", "18:30"
         ],
-        
+
         // Computed properties
         get enderecoCarregado() {
           return this.endereco.logradouro && this.endereco.bairro && this.endereco.localidade && this.endereco.uf;
         },
-        
+
         get servicosSelecionados() {
           return this.servicos.filter(servico => servico.selecionado);
         },
-        
+
         get minDate() {
           const today = new Date();
           return today.toISOString().split('T')[0];
         },
-        
+
         get datasValidas() {
           if (this.servicosSelecionados.length === 0) return false;
-          
+
           const today = new Date();
           today.setHours(0, 0, 0, 0);
-          
+
           for (const servico of this.servicosSelecionados) {
             if (!servico.data || !servico.horario) return false;
-            
+
             const selectedDate = new Date(servico.data);
             if (selectedDate < today) return false;
-            
+
             // Verificar se o horário não está no passado quando a data for hoje
             if (selectedDate.getTime() === today.getTime()) {
               const now = new Date();
               const [hours, minutes] = servico.horario.split(':');
               const selectedTime = new Date();
               selectedTime.setHours(parseInt(hours), parseInt(minutes), 0, 0);
-              
+
               if (selectedTime < now) return false;
             }
           }
-          
+
           return true;
         },
-        
+
         // Métodos
         startAgendamento() {
           this.currentStep = 1;
           this.showStep(1);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         },
-        
+
         nextStep() {
           if (this.currentStep < 8) {
             this.currentStep++;
@@ -926,7 +840,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }
         },
-        
+
         prevStep() {
           if (this.currentStep > 1) {
             this.currentStep--;
@@ -934,23 +848,23 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }
         },
-        
+
         showStep(stepNumber) {
           document.querySelectorAll('.step').forEach(step => {
             step.classList.remove('active');
           });
           document.getElementById(`step${stepNumber === 0 ? '0' : stepNumber}`).classList.add('active');
         },
-        
+
         buscarCEP() {
           // Remover caracteres não numéricos
           const cepNumerico = this.cep.replace(/\D/g, '');
-          
+
           if (cepNumerico.length !== 8) {
             alert("CEP inválido. Deve conter 8 dígitos.");
             return;
           }
-          
+
           fetch(`https://viacep.com.br/ws/${cepNumerico}/json/`)
             .then(response => response.json())
             .then(data => {
@@ -970,75 +884,75 @@
               alert("Ocorreu um erro ao buscar o CEP. Por favor, tente novamente.");
             });
         },
-        
+
         formatarCEP() {
           // Formatar CEP: 00000-000
           let cepNumerico = this.cep.replace(/\D/g, '');
-          
+
           if (cepNumerico.length > 5) {
             cepNumerico = cepNumerico.substring(0, 5) + '-' + cepNumerico.substring(5, 8);
           }
-          
+
           this.cep = cepNumerico;
         },
-        
+
         formatarTelefone() {
           // Formatar telefone: (00) 00000-0000
           let telefoneNumerico = this.telefone.replace(/\D/g, '');
-          
+
           if (telefoneNumerico.length > 2) {
             telefoneNumerico = '(' + telefoneNumerico.substring(0, 2) + ') ' + telefoneNumerico.substring(2);
           }
-          
+
           if (telefoneNumerico.length > 10) {
             telefoneNumerico = telefoneNumerico.substring(0, 10) + '-' + telefoneNumerico.substring(10, 14);
           }
-          
+
           this.telefone = telefoneNumerico;
         },
-        
+
         formatarData(dataISO) {
           // Formatar data para dd/mm/aaaa
           if (!dataISO) return '';
           const [year, month, day] = dataISO.split('-');
           return `${day}/${month}/${year}`;
         },
-        
+
         finalizarAgendamento() {
           if (this.formaPagamento === 'agora') {
             // Redirecionar para checkout (simulação)
             alert("Redirecionando para a página de pagamento...");
           }
-          
+
           this.nextStep();
-          
+
           // Enviar dados para o WhatsApp
           this.enviarWhatsApp();
         },
-        
+
         enviarWhatsApp() {
           const numeroWhatsapp = "5551999291480";
           let texto = `*NOVO AGENDAMENTO - ${this.nomeCompleto}*\n\n`;
-          
+
           texto += `*Nome:* ${this.nomeCompleto}\n`;
           texto += `*Idade:* ${this.idade}\n`;
           texto += `*Telefone:* ${this.telefone}\n`;
           texto += `*Endereço:* ${this.endereco.logradouro}, ${this.endereco.bairro}, ${this.endereco.localidade}/${this.endereco.uf}\n\n`;
-          
+
           texto += `*Serviços Agendados:*\n`;
           this.servicosSelecionados.forEach(servico => {
             texto += `- ${servico.nome}: ${this.formatarData(servico.data)} às ${servico.horario}\n`;
           });
-          
+
           texto += `\n*Forma de Pagamento:* ${this.formaPagamento === 'agora' ? 'Online' : 'Presencial'}\n\n`;
           texto += `_Agendamento realizado via site_`;
-          
+
           const whatsappUrl = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`;
-          
+
           // Abrir em nova guia após um pequeno delay para a confirmação ser vista
           setTimeout(() => {
             window.open(whatsappUrl, '_blank');
-          }, 3000);
+          }, 8000);
         }
       }));
     });
@@ -1053,4 +967,5 @@
     });
   </script>
 </body>
+
 </html>

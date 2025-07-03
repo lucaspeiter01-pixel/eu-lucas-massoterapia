@@ -195,25 +195,32 @@
             Descubra um refúgio de paz e acolhimento para restaurar sua energia
             e bem-estar.
           </p>
-          <button @click="startAgendamento()" class="btn btn-primary mt-8 px-8 py-3 rounded-full text-lg font-medium">
-            Agendar Minha Sessão
-          </button>
-          <div class="mt-16 max-w-3xl mx-auto bg-white bg-opacity-90 rounded-xl p-6 text-gray-800">
-            <h2 class="text-2xl font-semibold text-[#41590C] mb-4">Sobre Lucas Peiter</h2>
-            <div class="space-y-4 text-justify">
-              <p>Com 30 anos de experiência em terapias integrativas, sou especialista em promover bem-estar físico e
-                emocional através de técnicas holísticas. Minha trajetória inclui:</p>
+          <div
+            class="mt-16 max-w-4xl mx-auto bg-gradient-to-br from-white to-green-50 rounded-2xl shadow-2xl overflow-hidden border border-green-100">
+            <!-- Cabeçalho com destaque -->
+            <div class="bg-gradient-to-r from-[#41590C] to-[#6B8E23] p-6">
+              <p class="text-green-100 font-medium">Terapeuta Integrativo | 30 Anos Transformando Vidas</p>
+            </div>
 
-              <ul class="list-disc pl-5 space-y-2">
-                <li>Criação do consultório de Fisioterapia na Saúde da Família em Florianópolis, com foco na saúde da
-                  mulher e infantil</li>
-                <li>Desenvolvimento de programas corporativos como "Trabalho é Mais Saúde" e "Cuidar é Prosperar",
-                  levando Reiki e ginástica laboral para empresas</li>
-                <li>Coordenação do projeto "INSPIRAR", oferecendo terapias integrativas para comunidades indígenas</li>
-              </ul>
+            <div class="p-4">
 
-              <p>Como Bacharel em Fisioterapia e terapeuta certificado pela ABRATH, combino conhecimento científico com
-                abordagens complementares para resultados transformadores.</p>
+              <!-- Credenciais -->
+              <div class="bg-[#F8FAF0] p-6 rounded-xl flex flex-col md:flex-row items-center gap-6">
+                <div>
+                  <h3 class="font-bold text-lg text-[#41590C] mb-1">Formação e Credenciais</h3>
+                  <p class="text-gray-700">Bacharel em Fisioterapia e terapeuta certificado pela ABRATH, combinando
+                    conhecimento científico com abordagens complementares para resultados transformadores.</p>
+                </div>
+              </div>
+
+              <!-- Chamada para ação -->
+              <div class="mt-2 text-center">
+                <button @click="startAgendamento()"
+                  class="btn btn-primary mt-8 px-8 py-3 rounded-full text-lg font-medium">
+                  Agendar Minha Sessão
+                </button>
+                <p class="mt-3 text-sm text-gray-500">Transforme sua saúde com uma abordagem integrada</p>
+              </div>
             </div>
           </div>
         </div>
@@ -638,7 +645,8 @@
           </div>
 
           <div class="flex space-x-4">
-            <a href="https://facebook.com/seu_perfil" target="_blank" class="text-white hover:text-gray-200">
+            <a href="https://www.facebook.com/profile.php?id=61559249053968" target="_blank"
+              class="text-white hover:text-gray-200">
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path
                   d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />

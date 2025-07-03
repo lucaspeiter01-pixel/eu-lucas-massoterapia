@@ -1,315 +1,1056 @@
 <!DOCTYPE html>
 <html lang="pt-br" data-theme="light">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lucas Peiter | Terapia Integrativa e Complementar</title>
-  <meta name="description"
-    content="Encontrersão 3: Foco no Estudo & Transformação (Tom Inspirador e Educativo)
-  🌿 Transforme Sua Vida com Reiki Gratuito e Estudos Holísticos!
-  Convidamos você para um espaço dedicado à evolução pessoal através das energias! Receba Reiki a distância GRATUITO três vezes por semana (Terças, Quartas, Sextas - horário avisado antecipadamente).
-  Junte-se a uma comunidade que:
-      Oferece cura energética coletiva de forma regular e gratuita.
-      Promove estudos sérios e compartilhamento sobre Reiki e terapias holísticas.
-      Incentiva o apoio mútuo e o esclarecimento de dúvidas para uma vida melhor.
-      Valoriza um ambiente puro, respeitoso e livre de assuntos externos à nossa missão de cura.
-  Para honrar este propósito, cultivamos: Foco total nas terapias energéticas, trocas respeitosas e um espaço livre de divulgações não solicitadas.
-  Sua jornada de autoconhecimento e equilíbrio começa aqui!
-  🙏 Clique no link para entrar no grupo, receber seu Reiki e fazer parte desta transformação coletiva! (Compartilhe esta oportunidade de cura!).e equilíbrio e bem-estar através de terapias que harmonizam corpo, mente e espírito." />
+  <title>Agendamento | Lucas Peiter - Terapia Integrativa e Complementar</title>
+  <meta name="description" content="Agende sua sessão de terapias holísticas em Florianópolis. Reiki, Auriculoterapia, Drenagem Linfática e mais." />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lucaspeiter.vercel.app" />
+  <meta property="og:title" content="Agendamento Online | Lucas Peiter - Terapias Holísticas" />
+  <meta property="og:description" content="Agende sua sessão de terapias holísticas em Florianópolis. Reiki, Auriculoterapia, Drenagem Linfática e mais." />
+  <meta property="og:image" content="/imgs/lucas_logo_1.jpeg" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://lucaspeiter.vercel.app" />
+  <meta property="twitter:title" content="Agendamento Online | Lucas Peiter - Terapias Holísticas" />
+  <meta property="twitter:description" content="Agende sua sessão de terapias holísticas em Florianópolis. Reiki, Auriculoterapia, Drenagem Linfática e mais." />
+  <meta property="twitter:image" content="/imgs/lucas-logo-2.jpeg" />
+  
+  <!-- Schema.org markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HealthAndBeautyBusiness",
+    "name": "Lucas Peiter | Terapia Integrativa e Complementar",
+    "image": "/imgs/lucas-logo-2.jpeg",
+    "telephone": "+55 (51) 99929-1480",
+    "email": "contato@lucasmassoterapia.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Lauro Linhares, 728, Sala 301",
+      "addressLocality": "Florianópolis",
+      "addressRegion": "SC",
+      "postalCode": "88036-001"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "19:00"
+    },
+    "priceRange": "$$",
+    "serviceType": [
+      "Reiki", "Auriculoterapia", "Drenagem Linfática", "Bambuterapia",
+      "Descontraturadora Muscular", "Escalda Pés", "Liberação Miofascial",
+      "Modeladora", "Moxabustão", "Reflexologia Podal", "Relaxante Realinhadora de Chakras",
+      "Shiatsu", "Tântrica / Nuru", "Terapêutica", "Ventosoterapia"
+    ]
+  }
+  </script>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
+  
   <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
+  
   <script src="https://cdn.tailwindcss.com"></script>
-
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="/index.js"></script>
-
+  <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  
   <style>
     body {
       font-family: "Inter", sans-serif;
+      background-color: #F2EAE4;
+      color: #1f2937;
     }
-
     .text-shadow {
       text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
     }
-
-    /* Garante que o AOS funcione sem 'saltos' */
     [data-aos] {
       opacity: 0;
       transition-property: opacity, transform;
     }
+    .progress-bar {
+      height: 8px;
+      background-color: #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background-color: #41590C;
+      transition: width 0.4s ease;
+    }
+    .service-card {
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .service-card.selected {
+      border-color: #41590C;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .accordion-open .accordion-content {
+      max-height: 1000px;
+    }
+    .btn-primary {
+      background-color: #41590C;
+      color: white;
+      border: none;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #35480a;
+      transform: translateY(-2px);
+    }
+    .form-control:focus {
+      border-color: #41590C;
+      box-shadow: 0 0 0 3px rgba(65, 89, 12, 0.2);
+    }
+    .step {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .step.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 768px) {
+      .step-content {
+        padding: 1.5rem;
+      }
+      .progress-container {
+        margin: 0 1rem;
+      }
+    }
   </style>
 </head>
-
-<body class="bg-[#F2EAE4] text-[#1f2937] antialiased">
-  <Analytics />
+<body>
   <div x-data="agendamento">
-    <header class="relative flex items-center justify-center h-screen overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <img src="/imgs/lucas-logo-2.jpeg" alt="Ambiente de massoterapia sereno" class="w-full h-full object-cover" />
+    <!-- Progress Bar -->
+    <div class="progress-container mb-8 sticky top-0 z-50 bg-white shadow-sm">
+      <div class="progress-bar">
+        <div class="progress-fill" :style="'width: ' + (currentStep / 8 * 100) + '%;'"></div>
       </div>
-      <div class="absolute inset-0 bg-[#41590C] bg-opacity-40 z-10"></div>
-      <div class="relative z-20 text-center text-white px-4 sm:px-6" data-aos="fade-up" data-aos-duration="1000">
-        <h1 class="text-4xl md:text-6xl font-semibold leading-tight text-shadow">
-          Equilíbrio para Corpo e Alma
-        </h1>
-        <p class="mt-4 max-w-xl mx-auto text-lg md:text-xl font-light text-shadow" data-aos="fade-up"
-          data-aos-delay="200" data-aos-duration="1000">
-          Descubra um refúgio de paz e acolhimento para restaurar sua energia
-          e bem-estar.
-        </p>
-        <a href="#servicos"
-          class="btn bg-white text-[#41590C] hover:bg-[#F2EAE4] border-none rounded-full px-8 mt-8 font-medium normal-case transition-transform duration-300 hover:scale-105"
-          data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-          Conhecer Terapias
-        </a>
+      <div class="flex justify-between text-xs text-gray-600 px-2 py-1">
+        <span>Passo <span x-text="currentStep"></span> de 8</span>
+        <span x-text="stepNames[currentStep - 1]"></span>
       </div>
-    </header>
+    </div>
 
-    <main>
-      <section id="filosofia" class="py-16 md:py-24 bg-[#41590C] text-white">
-        <div class="container mx-auto px-4 sm:px-6 text-center max-w-3xl" data-aos="fade-right">
-          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">
-            Cuidar da energia é cuidar da vida
-          </h2>
-          <p class="mt-6 text-lg font-light opacity-80">
-            Meu propósito é ser um canal de auxílio para sua saúde integral.
-            Acredito que o equilíbrio entre corpo, mente e espírito é a chave
-            para uma vida plena, e utilizo técnicas terapêuticas para
-            facilitar seu processo de cura e autoconhecimento.
+    <!-- Hero Section -->
+    <div class="step active" id="step0">
+      <header class="relative flex items-center justify-center min-h-screen overflow-hidden">
+        <div class="absolute inset-0 z-0">
+          <img src="/imgs/lucas-logo-2.jpeg" alt="Ambiente de terapia sereno" class="w-full h-full object-cover" />
+        </div>
+        <div class="absolute inset-0 bg-[#41590C] bg-opacity-40 z-10"></div>
+        <div class="relative z-20 text-center text-white px-4 sm:px-6">
+          <h1 class="text-4xl md:text-6xl font-semibold leading-tight text-shadow">
+            Equilíbrio para Corpo e Alma
+          </h1>
+          <p class="mt-4 max-w-xl mx-auto text-lg md:text-xl font-light text-shadow">
+            Descubra um refúgio de paz e acolhimento para restaurar sua energia
+            e bem-estar.
           </p>
-        </div>
-      </section>
-
-      <section id="servicos" class="py-16 md:py-24 bg-[#F2EAE4]">
-        <div class="container mx-auto px-4 sm:px-6">
-          <div class="text-center max-w-3xl mx-auto" data-aos="zoom-in" data-aos-duration="600">
-            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-[#41590C]">
-              Terapias para sua Harmonia
-            </h2>
-            <p class="mt-4 text-lg text-black/70">
-              Cada técnica é aplicada com profissionalismo e acolhimento,
-              visando seu equilíbrio integral.
-            </p>
-          </div>
-          <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <article class="card bg-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
-              data-aos="fade-up" data-aos-duration="500">
-              <div class="card-body items-center text-center p-8">
-                <i data-lucide="hand-helping" class="text-[#A69668] w-12 h-12"></i>
-                <h3 class="card-title text-2xl font-medium mt-4">
-                  Reiki Usui
-                </h3>
-                <p class="mt-2 font-light">
-                  Canalização de energia vital para reequilíbrio, alívio de
-                  estresse e promoção da paz interior.
-                </p>
-                <div class="card-actions mt-6">
-                  <button @click="openModal('Reiki Usui')"
-                    class="btn bg-[#41590C] hover:bg-[#35480a] text-white rounded-full px-6 transition-transform duration-300 hover:scale-105">
-                    Quero Agendar
-                  </button>
-                </div>
-              </div>
-            </article>
-            <article class="card bg-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
-              data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
-              <div class="card-body items-center text-center p-8">
-                <i data-lucide="brain-circuit" class="text-[#A69668] w-12 h-12"></i>
-                <h3 class="card-title text-2xl font-medium mt-4">
-                  Auriculoterapia
-                </h3>
-                <p class="mt-2 font-light">
-                  Estímulo de pontos reflexos na orelha para tratar
-                  disfunções, aliviar dores e restaurar o equilíbrio do corpo.
-                </p>
-                <div class="card-actions mt-6">
-                  <button @click="openModal('Auriculoterapia')"
-                    class="btn bg-[#41590C] hover:bg-[#35480a] text-white rounded-full px-6 transition-transform duration-300 hover:scale-105">
-                    Quero Agendar
-                  </button>
-                </div>
-              </div>
-            </article>
-            <article class="card bg-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
-              data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-              <div class="card-body items-center text-center p-8">
-                <i data-lucide="waves" class="text-[#A69668] w-12 h-12"></i>
-                <h3 class="card-title text-2xl font-medium mt-4">
-                  Drenagem Linfática
-                </h3>
-                <p class="mt-2 font-light">
-                  Toques suaves para reduzir inchaço, desintoxicar o organismo
-                  e fortalecer o sistema imunológico.
-                </p>
-                <div class="card-actions mt-6">
-                  <button @click="openModal('Drenagem Linfática')"
-                    class="btn bg-[#41590C] hover:bg-[#35480a] text-white rounded-full px-6 transition-transform duration-300 hover:scale-105">
-                    Quero Agendar
-                  </button>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer
-      class="footer p-10 bg-[#6B7332] text-white flex flex-col items-center text-center space-y-8 md:flex-row md:justify-between md:items-start md:text-left md:space-y-0">
-      <aside class="flex flex-col items-center md:items-start" data-aos="fade-right">
-        <h3 class="font-semibold text-lg">Lucas Peiter</h3>
-        <p class="font-light opacity-80">
-          Terapia Integrativa e Complementar<br />CNPJ: 46.302.671/0001-08<br />Rua
-          Lauro Linhares, 728, Sala 301, Trindade - Florianópolis/SC
-        </p>
-      </aside>
-
-      <div class="flex flex-col items-center md:items-start" data-aos="fade-left">
-        <div class="w-full max-w-sm md:max-w-md lg:max-w-lg mb-4">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d442.0313311833394!2d-48.5250855!3d-27.5857577!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9527385c6ccbc32b%3A0xc1b0ccec27780ba!2sR.%20Lauro%20Linhares%2C%20728%20-%20Trindade%2C%20Florian%C3%B3polis%20-%20SC%2C%2088036-001!5e0!3m2!1spt-BR!2sbr!4v1750897954675!5m2!1spt-BR!2sbr"
-            class="w-full h-64 rounded-lg border-2 border-white/20" style="border: 0" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <nav>
-          <h6 class="footer-title opacity-100">Social</h6>
-          <a href="https://instagram.com/lucasmassofloripa" target="_blank"
-            class="link link-hover flex items-center gap-2 font-light opacity-80 hover:opacity-100 transition-opacity">
-            <i data-lucide="instagram" class="w-5 h-5"></i> @lucasmassofloripa
-          </a>
-        </nav>
-      </div>
-    </footer>
-
-    <dialog id="agendamento_modal" class="modal" x-ref="modal">
-      <div class="modal-box bg-white transition-all duration-300" x-show="isModalVisible"
-        x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
-        x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
-        <form method="dialog">
-          <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-            ✕
+          <button
+            @click="startAgendamento()"
+            class="btn btn-primary mt-8 px-8 py-3 rounded-full text-lg font-medium"
+          >
+            Agendar Minha Sessão
           </button>
-        </form>
-        <h3 class="font-bold text-lg mb-4">
-          Pré-agendamento para
-          <span class="text-[#41590C]" x-text="servicoSelecionado"></span>
-        </h3>
-        <form @submit.prevent="handlePreAgendamento" class="space-y-4">
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Seu Nome e Sobrenome*</span>
-            </div>
-            <input x-model="nomeCliente" type="text" placeholder="Digite seu nome completo"
-              class="input input-bordered w-full" required />
-          </label>
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Data de Preferência (opcional)</span>
-            </div>
-            <input x-model="dataAgendamento" :min="today" type="date" class="input input-bordered w-full" />
-          </label>
-          <label class="form-control w-full">
-            <div class="label">
-              <span class="label-text">Horário de preferência (opcional)</span>
-            </div>
-            <select x-model="horarioAgendamento" class="select select-bordered w-full font-light">
-              <option disabled selected value="">Selecione um horário</option>
-              <option value="08:00">08:00</option>
-              <option value="08:30">08:30</option>
-              <option value="09:00">09:00</option>
-              <option value="09:30">09:30</option>
-              <option value="10:00">10:00</option>
-              <option value="10:30">10:30</option>
-              <option value="11:00">11:00</option>
-              <option value="11:30">11:30</option>
-              <option value="12:00">12:00</option>
-              <option value="13:00">13:00</option>
-              <option value="13:30">13:30</option>
-              <option value="14:00">14:00</option>
-              <option value="14:30">14:30</option>
-              <option value="15:00">15:00</option>
-              <option value="15:30">15:30</option>
-              <option value="16:00">16:00</option>
-              <option value="16:30">16:30</option>
-              <option value="17:00">17:00</option>
-              <option value="17:30">17:30</option>
-              <option value="18:00">18:00</option>
-              <option value="18:30">18:30</option>
-              <option value="19:00">19:00</option>
-            </select>
-          </label>
-          <div class="modal-action mt-6">
-            <button type="submit" class="btn bg-[#41590C] hover:bg-[#35480a] w-full text-white">
-              Enviar via WhatsApp
+        </div>
+      </header>
+    </div>
+
+    <!-- Step 1: Nome -->
+    <div class="step py-12" id="step1">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-semibold text-[#41590C]">Como podemos chamar você?</h2>
+          <p class="mt-2 text-gray-600">Comece seu caminho para o equilíbrio preenchendo seu nome</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+          <div class="mb-6">
+            <label class="block text-gray-700 mb-2" for="nome">Nome Completo</label>
+            <input
+              x-model="nomeCompleto"
+              type="text"
+              id="nome"
+              class="form-control w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#41590C]"
+              placeholder="Digite seu nome completo"
+              required
+            />
+          </div>
+          
+          <div class="flex justify-end">
+            <button
+              @click="nextStep()"
+              class="btn btn-primary px-6 py-3 rounded-full"
+              :disabled="!nomeCompleto"
+            >
+              Próximo
             </button>
           </div>
-        </form>
+        </div>
       </div>
-      <form method="dialog" class="modal-backdrop">
-        <button @click="isModalVisible = false">close</button>
-      </form>
-    </dialog>
+    </div>
+
+    <!-- Step 2: Idade -->
+    <div class="step py-12" id="step2">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-semibold text-[#41590C]">Qual é a sua idade?</h2>
+          <p class="mt-2 text-gray-600">Para melhor atendê-lo(a), precisamos confirmar sua idade</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+          <div class="mb-6">
+            <label class="block text-gray-700 mb-2" for="idade">Sua Idade</label>
+            <input
+              x-model="idade"
+              type="number"
+              min="18"
+              id="idade"
+              class="form-control w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#41590C]"
+              placeholder="Digite sua idade"
+              required
+            />
+            <p class="text-sm text-gray-500 mt-1">É necessário ter 18 anos ou mais para agendar</p>
+          </div>
+          
+          <div class="flex justify-between">
+            <button
+              @click="prevStep()"
+              class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300"
+            >
+              Voltar
+            </button>
+            <button
+              @click="nextStep()"
+              class="btn btn-primary px-6 py-3 rounded-full"
+              :disabled="!idade || idade < 18"
+            >
+              Próximo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: CEP -->
+    <div class="step py-12" id="step3">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-semibold text-[#41590C]">Onde você mora?</h2>
+          <p class="mt-2 text-gray-600">Informe seu CEP para encontrarmos seu endereço</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+          <div class="mb-6">
+            <label class="block text-gray-700 mb-2" for="cep">CEP</label>
+            <div class="flex">
+              <input
+                x-model="cep"
+                @input="formatarCEP"
+                type="text"
+                id="cep"
+                class="form-control w-full px-4 py-3 border rounded-lg rounded-r-none focus:outline-none focus:ring-2 focus:ring-[#41590C]"
+                placeholder="00000-000"
+                required
+              />
+              <button
+                @click="buscarCEP()"
+                type="button"
+                class="btn btn-primary px-4 py-3 rounded-l-none"
+              >
+                Buscar
+              </button>
+            </div>
+          </div>
+          
+          <div x-show="enderecoCarregado" class="space-y-4">
+            <div>
+              <label class="block text-gray-700 mb-2" for="logradouro">Endereço</label>
+              <input
+                x-model="endereco.logradouro"
+                type="text"
+                id="logradouro"
+                class="form-control w-full px-4 py-3 border rounded-lg"
+                readonly
+              />
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-gray-700 mb-2" for="bairro">Bairro</label>
+                <input
+                  x-model="endereco.bairro"
+                  type="text"
+                  id="bairro"
+                  class="form-control w-full px-4 py-3 border rounded-lg"
+                  readonly
+                />
+              </div>
+              
+              <div>
+                <label class="block text-gray-700 mb-2" for="cidade">Cidade</label>
+                <input
+                  x-model="endereco.localidade"
+                  type="text"
+                  id="cidade"
+                  class="form-control w-full px-4 py-3 border rounded-lg"
+                  readonly
+                />
+              </div>
+              
+              <div>
+                <label class="block text-gray-700 mb-2" for="uf">Estado</label>
+                <input
+                  x-model="endereco.uf"
+                  type="text"
+                  id="uf"
+                  class="form-control w-full px-4 py-3 border rounded-lg"
+                  readonly
+                />
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex justify-between mt-8">
+            <button
+              @click="prevStep()"
+              class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300"
+            >
+              Voltar
+            </button>
+            <button
+              @click="nextStep()"
+              class="btn btn-primary px-6 py-3 rounded-full"
+              :disabled="!enderecoCarregado"
+            >
+              Próximo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Telefone -->
+    <div class="step py-12" id="step4">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-semibold text-[#41590C]">Como podemos entrar em contato?</h2>
+          <p class="mt-2 text-gray-600">Informe seu melhor número para confirmarmos seu agendamento</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+          <div class="mb-6">
+            <label class="block text-gray-700 mb-2" for="telefone">Telefone ou WhatsApp</label>
+            <input
+              x-model="telefone"
+              @input="formatarTelefone"
+              type="tel"
+              id="telefone"
+              class="form-control w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#41590C]"
+              placeholder="(00) 00000-0000"
+              required
+            />
+            <p class="text-sm text-gray-500 mt-1">Enviaremos a confirmação por este número</p>
+          </div>
+          
+          <div class="flex justify-between">
+            <button
+              @click="prevStep()"
+              class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300"
+            >
+              Voltar
+            </button>
+            <button
+              @click="nextStep()"
+              class="btn btn-primary px-6 py-3 rounded-full"
+              :disabled="!telefone || telefone.length < 14"
+            >
+              Próximo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5: Serviços -->
+    <div class="step py-12" id="step5">
+      <div class="container mx-auto px-4 max-w-6xl">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-semibold text-[#41590C]">Qual terapia você deseja?</h2>
+          <p class="mt-2 text-gray-600">Selecione uma ou mais terapias para seu agendamento</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <template x-for="(servico, index) in servicos" :key="index">
+            <div 
+              class="service-card bg-white rounded-xl shadow-md p-6 cursor-pointer"
+              :class="{ 'selected': servico.selecionado }"
+              @click="servico.selecionado = !servico.selecionado"
+            >
+              <div class="flex items-start">
+                <input 
+                  type="checkbox" 
+                  class="mr-3 mt-1"
+                  :checked="servico.selecionado"
+                  @click.stop
+                />
+                <div class="flex-1">
+                  <h3 class="text-xl font-semibold text-[#41590C]" x-text="servico.nome"></h3>
+                  
+                  <div class="mt-4">
+                    <button 
+                      @click.stop="servico.accordionOpen = !servico.accordionOpen"
+                      class="text-sm font-medium text-[#A69668] flex items-center"
+                      :aria-expanded="servico.accordionOpen"
+                    >
+                      <span>Saiba mais</span>
+                      <svg 
+                        class="ml-1 w-4 h-4 transition-transform" 
+                        :class="{ 'rotate-180': servico.accordionOpen }" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        viewBox="0 0 24 24"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                      </svg>
+                    </button>
+                    
+                    <div 
+                      x-show="servico.accordionOpen"
+                      class="mt-2 text-gray-600 text-sm overflow-hidden"
+                      x-transition:enter="transition ease-out duration-300"
+                      x-transition:enter-start="opacity-0 max-h-0"
+                      x-transition:enter-end="opacity-100 max-h-screen"
+                      x-transition:leave="transition ease-in duration-200"
+                      x-transition:leave-start="opacity-100 max-h-screen"
+                      x-transition:leave-end="opacity-0 max-h-0"
+                    >
+                      <p x-text="servico.descricao" class="pt-2"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+        
+        <div class="flex justify-between mt-10">
+          <button
+            @click="prevStep()"
+            class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300"
+          >
+            Voltar
+          </button>
+          <button
+            @click="nextStep()"
+            class="btn btn-primary px-6 py-3 rounded-full"
+            :disabled="servicosSelecionados.length === 0"
+          >
+            Próximo
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 6: Data e Horário -->
+    <div class="step py-12" id="step6">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-semibold text-[#41590C]">Escolha data e horário</h2>
+          <p class="mt-2 text-gray-600">Selecione quando deseja receber sua terapia</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6">
+          <template x-for="(servico, index) in servicosSelecionados" :key="index">
+            <div class="mb-8 p-4 border-b border-gray-100">
+              <h3 class="text-xl font-semibold text-[#41590C]" x-text="servico.nome"></h3>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                <div>
+                  <label class="block text-gray-700 mb-2">Data</label>
+                  <input
+                    x-model="servico.data"
+                    type="date"
+                    :min="minDate"
+                    class="form-control w-full px-4 py-3 border rounded-lg"
+                    required
+                  />
+                </div>
+                
+                <div>
+                  <label class="block text-gray-700 mb-2">Horário</label>
+                  <select
+                    x-model="servico.horario"
+                    class="form-control w-full px-4 py-3 border rounded-lg"
+                    required
+                  >
+                    <option value="">Selecione um horário</option>
+                    <template x-for="horario in horariosDisponiveis">
+                      <option :value="horario" x-text="horario"></option>
+                    </template>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </template>
+          
+          <div class="flex justify-between mt-8">
+            <button
+              @click="prevStep()"
+              class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300"
+            >
+              Voltar
+            </button>
+            <button
+              @click="nextStep()"
+              class="btn btn-primary px-6 py-3 rounded-full"
+              :disabled="!datasValidas"
+            >
+              Próximo
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 7: Pagamento -->
+    <div class="step py-12" id="step7">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-semibold text-[#41590C]">Como prefere pagar?</h2>
+          <p class="mt-2 text-gray-600">Escolha a opção de pagamento que melhor lhe convém</p>
+        </div>
+        
+        <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+          <div class="space-y-4">
+            <div>
+              <input 
+                type="radio" 
+                id="pagar-agora" 
+                name="pagamento" 
+                value="agora" 
+                x-model="formaPagamento"
+                class="hidden"
+              />
+              <label 
+                for="pagar-agora" 
+                class="flex items-center p-4 border rounded-lg cursor-pointer hover:border-[#41590C]"
+                :class="{ 'border-[#41590C] bg-green-50': formaPagamento === 'agora' }"
+              >
+                <div class="mr-3">
+                  <div class="w-6 h-6 border-2 border-gray-300 rounded-full flex items-center justify-center">
+                    <div 
+                      class="w-3 h-3 rounded-full bg-[#41590C]" 
+                      x-show="formaPagamento === 'agora'"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="font-medium text-lg">Pagar agora online</h3>
+                  <p class="text-gray-600 mt-1">Pagamento seguro via cartão de crédito, Pix ou boleto</p>
+                </div>
+              </label>
+            </div>
+            
+            <div>
+              <input 
+                type="radio" 
+                id="pagar-depois" 
+                name="pagamento" 
+                value="depois" 
+                x-model="formaPagamento"
+                class="hidden"
+              />
+              <label 
+                for="pagar-depois" 
+                class="flex items-center p-4 border rounded-lg cursor-pointer hover:border-[#41590C]"
+                :class="{ 'border-[#41590C] bg-green-50': formaPagamento === 'depois' }"
+              >
+                <div class="mr-3">
+                  <div class="w-6 h-6 border-2 border-gray-300 rounded-full flex items-center justify-center">
+                    <div 
+                      class="w-3 h-3 rounded-full bg-[#41590C]" 
+                      x-show="formaPagamento === 'depois'"
+                    ></div>
+                  </div>
+                </div>
+                <div>
+                  <h3 class="font-medium text-lg">Pagar na hora do atendimento</h3>
+                  <p class="text-gray-600 mt-1">Dinheiro, cartão de débito/crédito ou Pix presencial</p>
+                </div>
+              </label>
+            </div>
+          </div>
+          
+          <div class="mt-10 bg-green-50 border border-green-200 rounded-lg p-4">
+            <h3 class="font-semibold text-green-800 flex items-center">
+              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+              </svg>
+              Grupo de Terapias Gratuitas
+            </h3>
+            <p class="text-green-700 mt-2">
+              Junte-se ao nosso grupo de WhatsApp para receber Reiki gratuito três vezes por semana e conteúdos exclusivos sobre terapias holísticas.
+            </p>
+            <a 
+              href="https://chat.whatsapp.com/SEU_LINK_DO_GRUPO" 
+              target="_blank"
+              class="btn btn-primary mt-3 inline-flex items-center"
+            >
+              Entrar no Grupo Gratuito
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
+          
+          <div class="flex justify-between mt-8">
+            <button
+              @click="prevStep()"
+              class="btn bg-gray-200 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-300"
+            >
+              Voltar
+            </button>
+            <button
+              @click="finalizarAgendamento()"
+              class="btn btn-primary px-6 py-3 rounded-full"
+              :disabled="!formaPagamento"
+            >
+              Finalizar Agendamento
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 8: Confirmação -->
+    <div class="step py-20" id="step8">
+      <div class="container mx-auto px-4 max-w-3xl text-center">
+        <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
+          <div class="text-green-600 mb-6">
+            <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#41590C] mb-6">
+            Agendamento Confirmado!
+          </h2>
+          
+          <p class="text-xl text-gray-700 mb-8">
+            Obrigado, <span class="font-semibold" x-text="nomeCompleto"></span>! Seu agendamento foi confirmado.
+          </p>
+          
+          <div class="bg-green-50 border border-green-200 rounded-lg p-6 mb-8 text-left">
+            <h3 class="font-semibold text-green-800 text-lg mb-4">Detalhes do Agendamento</h3>
+            
+            <div class="space-y-3">
+              <div class="flex">
+                <span class="font-medium text-gray-700 w-32">Serviços:</span>
+                <ul class="list-disc pl-5">
+                  <template x-for="servico in servicosSelecionados">
+                    <li x-text="servico.nome + ' - ' + formatarData(servico.data) + ' às ' + servico.horario"></li>
+                  </template>
+                </ul>
+              </div>
+              
+              <div class="flex">
+                <span class="font-medium text-gray-700 w-32">Endereço:</span>
+                <span x-text="endereco.logradouro + ', ' + endereco.bairro + ' - ' + endereco.localidade + '/' + endereco.uf"></span>
+              </div>
+              
+              <div class="flex">
+                <span class="font-medium text-gray-700 w-32">Telefone:</span>
+                <span x-text="telefone"></span>
+              </div>
+              
+              <div class="flex">
+                <span class="font-medium text-gray-700 w-32">Pagamento:</span>
+                <span x-text="formaPagamento === 'agora' ? 'Online (será redirecionado)' : 'Presencial na hora do atendimento'"></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+            <h3 class="font-semibold text-blue-800 text-lg mb-3">Mensagem de Gratidão</h3>
+            <p class="text-blue-700 italic">
+              "A gratidão é a memória do coração. Agradeço profundamente por escolher compartilhar esta jornada de cura e autoconhecimento comigo. Que cada sessão seja um passo em direção ao seu equilíbrio pleno, e que a energia de cura que receber possa multiplicar-se em sua vida. Estou verdadeiramente honrado por poder contribuir com seu bem-estar."
+            </p>
+            <p class="text-blue-800 mt-4 font-medium">- Lucas Peiter</p>
+          </div>
+          
+          <div class="flex flex-col sm:flex-row justify-center gap-4 mt-10">
+            <a 
+              href="https://chat.whatsapp.com/SEU_LINK_DO_GRUPO" 
+              target="_blank"
+              class="btn bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full flex items-center justify-center"
+            >
+              Entrar no Grupo Gratuito
+            </a>
+            
+            <a 
+              href="https://lucaspeiter.vercel.app" 
+              class="btn bg-[#41590C] hover:bg-[#35480a] text-white px-6 py-3 rounded-full"
+            >
+              Voltar ao Site Principal
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#6B7332] text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <h3 class="text-xl font-semibold">Lucas Peiter</h3>
+            <p class="mt-2">Terapia Integrativa e Complementar</p>
+            <p class="mt-1">CNPJ: 46.302.671/0001-08</p>
+            <p class="mt-1">Rua Lauro Linhares, 728, Sala 301, Trindade - Florianópolis/SC</p>
+          </div>
+          
+          <div>
+            <a 
+              href="https://instagram.com/lucasmassofloripa" 
+              target="_blank"
+              class="flex items-center text-white hover:text-gray-200"
+            >
+              <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              @lucasmassofloripa
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 
   <script>
     document.addEventListener("alpine:init", () => {
       Alpine.data("agendamento", () => ({
-        servicoSelecionado: "",
-        nomeCliente: "",
-        dataAgendamento: "",
-        horarioAgendamento: "",
-        isModalVisible: false, // Controla a transição do modal
-        today: new Date().toISOString().split("T")[0],
-
-        openModal(servico) {
-          this.servicoSelecionado = servico;
-          this.isModalVisible = true;
-          this.$refs.modal.showModal();
+        // Passos e progresso
+        currentStep: 0,
+        stepNames: [
+          "Informações Pessoais",
+          "Idade",
+          "Endereço",
+          "Contato",
+          "Serviços",
+          "Data e Horário",
+          "Pagamento",
+          "Confirmação"
+        ],
+        
+        // Dados do formulário
+        nomeCompleto: "",
+        idade: "",
+        cep: "",
+        telefone: "",
+        formaPagamento: "",
+        endereco: {
+          logradouro: "",
+          bairro: "",
+          localidade: "",
+          uf: ""
         },
-
-        handlePreAgendamento() {
-          if (!this.nomeCliente) {
-            alert("Por favor, preencha seu nome.");
+        
+        // Serviços disponíveis
+        servicos: [
+          {
+            id: 1,
+            nome: "Auriculoterapia",
+            descricao: "Estímulo de pontos reflexos na orelha para tratar disfunções, aliviar dores e restaurar o equilíbrio do corpo.",
+            selecionado: false,
+            accordionOpen: false
+          },
+          {
+            id: 2,
+            nome: "Bambuterapia",
+            descricao: "Massagem com bambus de diferentes tamanhos que promove drenagem linfática e modelagem corporal.",
+            selecionado: false,
+            accordionOpen: false
+          },
+          {
+            id: 3,
+            nome: "Descontraturadora Muscular",
+            descricao: "Técnicas para liberar tensões musculares profundas e aliviar dores crônicas.",
+            selecionado: false,
+            accordionOpen: false
+          },
+          {
+            id: 4,
+            nome: "Drenagem Linfática",
+            descricao: "Toques suaves para reduzir inchaço, desintoxicar o organismo e fortalecer o sistema imunológico.",
+            selecionado: false,
+            accordionOpen: false
+          },
+          {
+            id: 5,
+            nome: "Escalda Pés",
+            descricao: "Terapia relaxante com água morna e ervas que promove bem-estar e alívio do estresse.",
+            selecionado: false,
+            accordionOpen: false
+          },
+          {
+            id: 6,
+            nome: "Liberação Miofascial",
+            descricao: "Técnicas para liberar a fáscia muscular, melhorando a flexibilidade e reduzindo dores.",
+            selecionado: false,
+            accordionOpen: false
+          },
+          {
+            id: 7,
+            nome: "Modeladora",
+            descricao: "Massagem que auxilia na redução de medidas e melhora da circulação sanguínea.",
+            selecionado: false,
+            accordionOpen: false
+          },
+          {
+            id: 8,
+            nome: "Moxabustão",
+            descricao: "Técnica da medicina chinesa que utiliza calor para estimular pontos de acupuntura.",
+            selecionado: false,
+            accordionOpen: false
+          },
+          {
+            id: 9,
+            nome: "Reiki Usui",
+            descricao: "Canalização de energia vital para reequilíbrio, alívio de estresse e promoção da paz interior.",
+            selecionado: false,
+            accordionOpen: false
+          },
+          {
+            id: 10,
+            nome: "Reflexologia Podal",
+            descricao: "Massagem nos pés que estimula pontos reflexos correspondentes a órgãos e sistemas do corpo.",
+            selecionado: false,
+            accordionOpen: false
+          },
+          {
+            id: 11,
+            nome: "Relaxante Realinhadora de Chakras",
+            descricao: "Técnica que combina massagem relaxante com alinhamento energético dos centros de força.",
+            selecionado: false,
+            accordionOpen: false
+          },
+          {
+            id: 12,
+            nome: "Shiatsu",
+            descricao: "Massagem japonesa que utiliza pressão com dedos para equilibrar a energia corporal.",
+            selecionado: false,
+            accordionOpen: false
+          }
+        ],
+        
+        // Horários disponíveis
+        horariosDisponiveis: [
+          "08:00", "08:30", "09:00", "09:30", "10:00", "10:30", 
+          "11:00", "11:30", "13:00", "13:30", "14:00", "14:30", 
+          "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", 
+          "18:00", "18:30"
+        ],
+        
+        // Computed properties
+        get enderecoCarregado() {
+          return this.endereco.logradouro && this.endereco.bairro && this.endereco.localidade && this.endereco.uf;
+        },
+        
+        get servicosSelecionados() {
+          return this.servicos.filter(servico => servico.selecionado);
+        },
+        
+        get minDate() {
+          const today = new Date();
+          return today.toISOString().split('T')[0];
+        },
+        
+        get datasValidas() {
+          if (this.servicosSelecionados.length === 0) return false;
+          
+          const today = new Date();
+          today.setHours(0, 0, 0, 0);
+          
+          for (const servico of this.servicosSelecionados) {
+            if (!servico.data || !servico.horario) return false;
+            
+            const selectedDate = new Date(servico.data);
+            if (selectedDate < today) return false;
+            
+            // Verificar se o horário não está no passado quando a data for hoje
+            if (selectedDate.getTime() === today.getTime()) {
+              const now = new Date();
+              const [hours, minutes] = servico.horario.split(':');
+              const selectedTime = new Date();
+              selectedTime.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+              
+              if (selectedTime < now) return false;
+            }
+          }
+          
+          return true;
+        },
+        
+        // Métodos
+        startAgendamento() {
+          this.currentStep = 1;
+          this.showStep(1);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        },
+        
+        nextStep() {
+          if (this.currentStep < 8) {
+            this.currentStep++;
+            this.showStep(this.currentStep);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        },
+        
+        prevStep() {
+          if (this.currentStep > 1) {
+            this.currentStep--;
+            this.showStep(this.currentStep);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        },
+        
+        showStep(stepNumber) {
+          document.querySelectorAll('.step').forEach(step => {
+            step.classList.remove('active');
+          });
+          document.getElementById(`step${stepNumber === 0 ? '0' : stepNumber}`).classList.add('active');
+        },
+        
+        buscarCEP() {
+          // Remover caracteres não numéricos
+          const cepNumerico = this.cep.replace(/\D/g, '');
+          
+          if (cepNumerico.length !== 8) {
+            alert("CEP inválido. Deve conter 8 dígitos.");
             return;
           }
-          const numeroWhatsapp = "5551999291480";
-          // CORREÇÃO: Removidas as barras invertidas das template strings
-          let texto = `Olá, Lucas! Gostaria de fazer um pré-agendamento para ${this.servicoSelecionado}.`;
-          texto += `\n\n*Nome:* ${this.nomeCliente}`;
-          if (this.dataAgendamento)
-            texto += `\n*Data Sugerida:* ${this.dataAgendamento}`;
-          if (this.horarioAgendamento)
-            texto += `\n*Horário Sugerido:* ${this.horarioAgendamento}`;
-
-          const whatsappUrl = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(
-            texto
-          )}`;
-          window.open(whatsappUrl, "_blank");
-
-          this.isModalVisible = false;
-          this.$refs.modal.close();
+          
+          fetch(`https://viacep.com.br/ws/${cepNumerico}/json/`)
+            .then(response => response.json())
+            .then(data => {
+              if (!data.erro) {
+                this.endereco = {
+                  logradouro: data.logradouro,
+                  bairro: data.bairro,
+                  localidade: data.localidade,
+                  uf: data.uf
+                };
+              } else {
+                alert("CEP não encontrado. Por favor, verifique e tente novamente.");
+              }
+            })
+            .catch(error => {
+              console.error("Erro ao buscar CEP:", error);
+              alert("Ocorreu um erro ao buscar o CEP. Por favor, tente novamente.");
+            });
         },
+        
+        formatarCEP() {
+          // Formatar CEP: 00000-000
+          let cepNumerico = this.cep.replace(/\D/g, '');
+          
+          if (cepNumerico.length > 5) {
+            cepNumerico = cepNumerico.substring(0, 5) + '-' + cepNumerico.substring(5, 8);
+          }
+          
+          this.cep = cepNumerico;
+        },
+        
+        formatarTelefone() {
+          // Formatar telefone: (00) 00000-0000
+          let telefoneNumerico = this.telefone.replace(/\D/g, '');
+          
+          if (telefoneNumerico.length > 2) {
+            telefoneNumerico = '(' + telefoneNumerico.substring(0, 2) + ') ' + telefoneNumerico.substring(2);
+          }
+          
+          if (telefoneNumerico.length > 10) {
+            telefoneNumerico = telefoneNumerico.substring(0, 10) + '-' + telefoneNumerico.substring(10, 14);
+          }
+          
+          this.telefone = telefoneNumerico;
+        },
+        
+        formatarData(dataISO) {
+          // Formatar data para dd/mm/aaaa
+          if (!dataISO) return '';
+          const [year, month, day] = dataISO.split('-');
+          return `${day}/${month}/${year}`;
+        },
+        
+        finalizarAgendamento() {
+          if (this.formaPagamento === 'agora') {
+            // Redirecionar para checkout (simulação)
+            alert("Redirecionando para a página de pagamento...");
+          }
+          
+          this.nextStep();
+          
+          // Enviar dados para o WhatsApp
+          this.enviarWhatsApp();
+        },
+        
+        enviarWhatsApp() {
+          const numeroWhatsapp = "5551999291480";
+          let texto = `*NOVO AGENDAMENTO - ${this.nomeCompleto}*\n\n`;
+          
+          texto += `*Nome:* ${this.nomeCompleto}\n`;
+          texto += `*Idade:* ${this.idade}\n`;
+          texto += `*Telefone:* ${this.telefone}\n`;
+          texto += `*Endereço:* ${this.endereco.logradouro}, ${this.endereco.bairro}, ${this.endereco.localidade}/${this.endereco.uf}\n\n`;
+          
+          texto += `*Serviços Agendados:*\n`;
+          this.servicosSelecionados.forEach(servico => {
+            texto += `- ${servico.nome}: ${this.formatarData(servico.data)} às ${servico.horario}\n`;
+          });
+          
+          texto += `\n*Forma de Pagamento:* ${this.formaPagamento === 'agora' ? 'Online' : 'Presencial'}\n\n`;
+          texto += `_Agendamento realizado via site_`;
+          
+          const whatsappUrl = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`;
+          
+          // Abrir em nova guia após um pequeno delay para a confirmação ser vista
+          setTimeout(() => {
+            window.open(whatsappUrl, '_blank');
+          }, 3000);
+        }
       }));
+    });
 
-      // Inicializa os ícones
-      lucide.createIcons();
-
-      // Inicializa o AOS
+    // Inicializa o AOS
+    document.addEventListener('DOMContentLoaded', () => {
       AOS.init({
-        once: true, // A animação ocorre apenas uma vez
-        duration: 600, // Duração padrão da animação
-        easing: "ease-in-out", // Curva de aceleração
+        once: true,
+        duration: 600,
+        easing: "ease-in-out",
       });
     });
   </script>
 </body>
-
 </html>

@@ -935,11 +935,36 @@
           class="flex flex-col items-center md:items-start"
           data-aos="fade-right"
         >
-          <h3 class="font-semibold text-lg">Lucas Peiter</h3>
+          <div class="flex items-center mb-4">
+            <img
+              src="/imgs/logo-branca.png"
+              alt="Lucas Peiter Massoterapia"
+              class="h-12"
+            />
+            <h3 class="font-semibold text-lg ml-2">Lucas Peiter</h3>
+          </div>
           <p class="font-light opacity-80">
-            Terapia Integrativa e Complementar<br />CNPJ: 46.302.671/0001-08<br />Rua
-            Lauro Linhares, 728, Sala 301, Trindade - Florianópolis/SC
+            Terapia Integrativa e Complementar<br />
+            CRTH 14666 - ABRATH<br />
+            CNPJ: 46.302.671/0001-08<br />
+            Rua Lauro Linhares, 728, Sala 301<br />
+            Trindade, Florianópolis - SC
           </p>
+          <div class="mt-4 flex space-x-4">
+            <a
+              href="https://wa.me/555199291480"
+              target="_blank"
+              class="text-white hover:text-[#A69668] transition-colors"
+            >
+              <i data-lucide="phone" class="w-6 h-6"></i>
+            </a>
+            <a
+              href="mailto:contato@lucasmassoterapia.com"
+              class="text-white hover:text-[#A69668] transition-colors"
+            >
+              <i data-lucide="mail" class="w-6 h-6"></i>
+            </a>
+          </div>
         </aside>
 
         <div
@@ -957,34 +982,67 @@
             ></iframe>
           </div>
           <nav>
-            <h6 class="footer-title opacity-100">Social</h6>
-            <a
-              href="https://instagram.com/lucasmassofloripa"
-              target="_blank"
-              class="link link-hover flex items-center gap-2 font-light opacity-80 hover:opacity-100 transition-opacity"
-            >
-              <i data-lucide="instagram" class="w-5 h-5"></i> @lucasmassofloripa
-            </a>
+            <h6 class="footer-title opacity-100">Redes Sociais</h6>
+            <div class="flex space-x-4">
+              <a
+                href="https://instagram.com/lucasmassofloripa"
+                target="_blank"
+                class="text-white hover:text-[#A69668] transition-colors"
+              >
+                <i data-lucide="instagram" class="w-6 h-6"></i>
+              </a>
+              <a
+                href="https://facebook.com/seu_perfil"
+                target="_blank"
+                class="text-white hover:text-[#A69668] transition-colors"
+              >
+                <i data-lucide="facebook" class="w-6 h-6"></i>
+              </a>
+              <a
+                href="https://tiktok.com/@seu_perfil"
+                target="_blank"
+                class="text-white hover:text-[#A69668] transition-colors"
+              >
+                <i data-lucide="tiktok" class="w-6 h-6"></i>
+              </a>
+            </div>
           </nav>
         </div>
       </footer>
 
       <dialog id="agendamento_modal" class="modal" x-ref="modal">
         <div
-          class="modal-box bg-white transition-all duration-300"
+          class="modal-box bg-white p-8 rounded-2xl max-w-md"
           x-show="isModalVisible"
+          x-transition:enter="transition ease-out duration-300"
           x-transition:enter-start="opacity-0 scale-90"
           x-transition:enter-end="opacity-100 scale-100"
+          x-transition:leave="transition ease-in duration-200"
           x-transition:leave-start="opacity-100 scale-100"
           x-transition:leave-end="opacity-0 scale-90"
         >
           <form method="dialog">
             <button
-              class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              class="btn btn-sm btn-circle btn-ghost absolute right-4 top-4 text-gray-500 hover:text-[#A69668]"
             >
               ✕
             </button>
           </form>
+
+          <div class="text-center mb-2">
+            <i
+              data-lucide="calendar-check"
+              class="w-12 h-12 text-[#A69668] mx-auto"
+            ></i>
+            <h3 class="font-bold text-xl mt-2">
+              Agendar
+              <span class="text-[#A69668]" x-text="servicoSelecionado"></span>
+            </h3>
+            <p class="text-gray-600 mt-1">
+              Preencha os dados para reservar sua sessão
+            </p>
+          </div>
+
           <h3 class="font-bold text-lg mb-4">
             Pré-agendamento para
             <span class="text-[#41590C]" x-text="servicoSelecionado"></span>
@@ -1048,13 +1106,18 @@
                 <option value="19:00">19:00</option>
               </select>
             </label>
-            <div class="modal-action mt-6">
+            <div class="modal-action mt-6 flex flex-col">
               <button
                 type="submit"
-                class="btn bg-[#41590C] hover:bg-[#35480a] w-full text-white"
+                class="btn bg-[#A69668] hover:bg-[#8e7d55] text-white w-full py-3 rounded-full text-lg font-medium shadow-md transition-all duration-300 transform hover:scale-[1.02]"
               >
+                <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i>
                 Enviar via WhatsApp
               </button>
+              <p class="text-sm text-gray-500 mt-3">
+                <i data-lucide="lock" class="w-4 h-4 inline mr-1"></i>
+                Seus dados estão seguros conosco
+              </p>
             </div>
           </form>
         </div>
@@ -1092,7 +1155,7 @@
           nomeCliente: "",
           dataAgendamento: "",
           horarioAgendamento: "",
-          isModalVisible: false, // Controla a transição do modal
+          isModalVisible: false,
           today: new Date().toISOString().split("T")[0],
 
           openModal(servico) {

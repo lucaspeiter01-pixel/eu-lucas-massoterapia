@@ -1,1198 +1,885 @@
 <!DOCTYPE html>
 <html lang="pt-br" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lucas Peiter | Terapia Integrativa e Complementar</title>
-    <meta
-      name="description"
-      content="Encontre equilíbrio e bem-estar através de terapias que harmonizam corpo, mente e espírito."
-    />
-    <meta
-      name="keywords"
-      content="massoterapia Florianópolis, terapias holísticas, Reiki, fisioterapia integrativa, Lucas Peiter, saúde corporativa"
-    />
-    <link rel="canonical" href="https://lucaspeiter.vercel.app" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"
-    ></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <style>
-      body {
-        font-family: "Inter", sans-serif;
-      }
 
-      .text-shadow {
-        text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucas Peiter | Terapia Integrativa e Complementar</title>
+  <meta name="description"
+    content="Encontre equilíbrio e bem-estar através de terapias que harmonizam corpo, mente e espírito." />
+  <meta name="keywords"
+    content="massoterapia Florianópolis, terapias holísticas, Reiki, fisioterapia integrativa, Lucas Peiter, saúde corporativa" />
+  <link rel="canonical" href="https://lucaspeiter.vercel.app" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+    }
 
-      [data-aos] {
-        opacity: 0;
-        transition-property: opacity, transform;
-      }
-    </style>
-  </head>
+    .text-shadow {
+      text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    }
 
-  <body class="bg-[#F2EAE4] text-[#1f2937] antialiased">
-    <div x-data="agendamento">
-      <header
-        class="relative flex items-center justify-center h-screen overflow-hidden"
-      >
-        <div class="absolute inset-0 z-0">
-          <img
-            src="/imgs/massagem-profissional.jpg"
-            alt="Sessão de massoterapia com Lucas Peiter"
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="absolute inset-0 bg-[#41590C] bg-opacity-50 z-10"></div>
-        <div
-          class="relative z-20 text-center text-white px-4 sm:px-6"
-          data-aos="fade-up"
-          data-aos-duration="1000"
-        >
-          <h1
-            class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-shadow"
-          >
-            Alinhamento Energético e Massagem Terapêutica
-          </h1>
-          <p
-            class="mt-4 max-w-xl mx-auto text-lg md:text-xl font-light text-shadow"
-            data-aos="fade-up"
-            data-aos-delay="200"
-            data-aos-duration="1000"
-          >
-            Método exclusivo de alinhamento dos chakras para seu bem-estar e
-            satisfação plena.
-          </p>
-          <a
-            href="#servicos"
-            class="btn bg-[#A69668] hover:bg-[#8e7d55] text-white border-none rounded-full px-8 py-3 mt-8 font-medium normal-case transition-transform duration-300 hover:scale-105"
-            data-aos="fade-up"
-            data-aos-delay="400"
-            data-aos-duration="1000"
-          >
-            Agendar Sessão
-          </a>
-          <div
-            class="mt-6 flex justify-center items-center space-x-4"
-            data-aos="fade-up"
-            data-aos-delay="600"
-          >
-            <div class="flex items-center">
-              <i data-lucide="map-pin" class="w-5 h-5 mr-2"></i>
-              <span>Florianópolis, SC</span>
-            </div>
-            <div class="flex items-center">
-              <i data-lucide="star" class="w-5 h-5 mr-2"></i>
-              <span>Método Exclusivo</span>
-            </div>
+    [data-aos] {
+      opacity: 0;
+      transition-property: opacity, transform;
+    }
+
+    [x-cloak] {
+      display: none !important;
+    }
+
+    .card {
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .modal-box {
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn {
+      text-transform: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .service-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Estilos adicionados para correção */
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      max-width: 350px;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.4s ease;
+    }
+    
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .payment-option {
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .payment-option:hover {
+      transform: scale(1.02);
+      border-color: #A69668;
+    }
+    
+    .payment-option.selected {
+      border-color: #41590C;
+      background-color: rgba(65, 89, 12, 0.05);
+    }
+  </style>
+</head>
+
+<body class="bg-[#F2EAE4] text-[#1f2937] antialiased" x-data="app">
+  <!-- CORREÇÃO: Alterado para x-data="app" -->
+  <div x-data="app">
+    <header class="relative flex items-center justify-center h-screen overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <!-- <img src="/imgs/massagem-profissional.jpg" alt="Sessão de massoterapia com Lucas Peiter"
+          class="w-full h-full object-cover" /> -->
+      </div>
+      <div class="absolute inset-0 bg-[#41590C] bg-opacity-50 z-10"></div>
+      <div class="relative z-20 text-center text-white px-4 sm:px-6" data-aos="fade-up" data-aos-duration="1000">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-shadow">
+          Alinhamento Energético e Massagem Terapêutica
+        </h1>
+        <p class="mt-4 max-w-xl mx-auto text-lg md:text-xl font-light text-shadow" data-aos="fade-up"
+          data-aos-delay="200" data-aos-duration="1000">
+          Método exclusivo de alinhamento dos chakras para seu bem-estar e
+          satisfação plena.
+        </p>
+        <a href="#servicos"
+          class="btn bg-[#41590C] hover:bg-[#35480a] text-white border-none rounded-full px-8 py-3 mt-8 font-medium normal-case transition-transform duration-300 hover:scale-105"
+          data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+          Agendar Sessão
+        </a>
+        <div class="mt-6 flex justify-center items-center space-x-4" data-aos="fade-up" data-aos-delay="600">
+          <div class="flex items-center">
+            <i data-lucide="map-pin" class="w-5 h-5 mr-2"></i>
+            <span>Florianópolis, SC</span>
+          </div>
+          <div class="flex items-center">
+            <i data-lucide="star" class="w-5 h-5 mr-2"></i>
+            <span>Método Exclusivo</span>
           </div>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <main>
-        <section id="filosofia" class="py-16 md:py-24 bg-[#41590C] text-white">
-          <div
-            class="container mx-auto px-4 sm:px-6 text-center max-w-3xl"
-            data-aos="fade-right"
-          >
-            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">
-              Cuidar da energia é cuidar da vida
-            </h2>
-            <p class="mt-6 text-lg font-light opacity-80">
-              Meu propósito é ser um canal de auxílio para sua saúde integral.
-              Acredito que o equilíbrio entre corpo, mente e espírito é a chave
-              para uma vida plena, e utilizo técnicas terapêuticas para
-              facilitar seu processo de cura e autoconhecimento.
-            </p>
+    <main>
+      <!-- Toast de Notificação -->
+      <div class="toast" :class="{'show': toast.show}" x-show="toast.show" x-cloak>
+        <div class="alert" :class="`alert-${toast.type}`">
+          <div>
+            <i :data-lucide="toast.icon" class="w-6 h-6 mr-2"></i>
+            <span x-text="toast.message"></span>
           </div>
-        </section>
+        </div>
+      </div>
 
-        <section class="py-16 bg-gradient-to-br from-[#F2EAE4] to-[#e8ddd0]">
-          <div class="container mx-auto px-4 max-w-6xl">
-            <div class="text-center mb-12">
-              <h2 class="text-3xl md:text-4xl font-bold text-[#41590C]">
-                O Método Exclusivo de Alinhamento Energético
-              </h2>
-              <p class="mt-4 max-w-2xl mx-auto text-gray-700">
-                Desenvolvido por Lucas Peiter para harmonização completa do ser
-              </p>
-              <div class="w-24 h-1 bg-[#6B8E23] mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div class="space-y-6">
-                <div class="flex items-start">
-                  <div
-                    class="bg-[#A69668] text-white p-3 rounded-full mr-4 flex-shrink-0"
-                  >
-                    <i data-lucide="zap" class="w-6 h-6"></i>
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-semibold text-gray-800">
-                      Equilíbrio Energético
-                    </h3>
-                    <p class="mt-2 text-gray-600">
-                      Harmonização dos 7 principais centros energéticos para
-                      restabelecer o fluxo vital.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="flex items-start">
-                  <div
-                    class="bg-[#A69668] text-white p-3 rounded-full mr-4 flex-shrink-0"
-                  >
-                    <i data-lucide="heart-handshake" class="w-6 h-6"></i>
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-semibold text-gray-800">
-                      Toque Terapêutico
-                    </h3>
-                    <p class="mt-2 text-gray-600">
-                      Combinação de técnicas de massagem com manipulação
-                      energética sutil.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="flex items-start">
-                  <div
-                    class="bg-[#A69668] text-white p-3 rounded-full mr-4 flex-shrink-0"
-                  >
-                    <i data-lucide="scan" class="w-6 h-6"></i>
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-semibold text-gray-800">
-                      Diagnóstico Sensível
-                    </h3>
-                    <p class="mt-2 text-gray-600">
-                      Identificação precisa dos bloqueios energéticos através da
-                      percepção desenvolvida em 30 anos de prática.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="bg-white p-8 rounded-xl shadow-lg">
-                <div
-                  class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden"
-                >
-                  <!-- Espaço para vídeo explicativo do método -->
-                  <div
-                    class="w-full h-64 bg-gradient-to-r from-[#A69668] to-[#8e7d55] flex items-center justify-center text-white text-lg font-semibold"
-                  >
-                    Vídeo Explicativo do Método
-                  </div>
-                </div>
-                <p class="mt-4 text-center text-gray-600">
-                  Conheça o processo único de alinhamento energético
-                  desenvolvido por Lucas Peiter
-                </p>
-                <div class="mt-6 text-center">
-                  <button
-                    class="btn bg-[#A69668] hover:bg-[#8e7d55] text-white"
-                  >
-                    Assistir Explicação Completa
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="py-16 bg-[#41590C] text-white">
-          <div class="container mx-auto px-4 max-w-6xl">
-            <div class="text-center mb-12">
-              <h2 class="text-3xl md:text-4xl font-bold">
-                O que dizem meus clientes
-              </h2>
-              <p class="mt-4 max-w-2xl mx-auto opacity-80">
-                Experiências transformadoras com o método exclusivo de
-                alinhamento
-              </p>
-              <div class="w-24 h-1 bg-[#A69668] mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-                <div class="flex items-center mb-4">
-                  <div
-                    class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"
-                  ></div>
-                  <div class="ml-4">
-                    <p class="font-bold">Carlos A.</p>
-                    <div class="flex text-[#A69668] mt-1">
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                    </div>
-                  </div>
-                </div>
-                <p class="italic">
-                  "O alinhamento de chakras do Lucas mudou minha vida. Após 3
-                  sessões, minha ansiedade diminuiu 90% e voltei a dormir como
-                  há anos não dormia!"
-                </p>
-              </div>
-
-              <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-                <div class="flex items-center mb-4">
-                  <div
-                    class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"
-                  ></div>
-                  <div class="ml-4">
-                    <p class="font-bold">Mariana F.</p>
-                    <div class="flex text-[#A69668] mt-1">
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                    </div>
-                  </div>
-                </div>
-                <p class="italic">
-                  "A massagem descontraturadora resolveu minha dor crônica nas
-                  costas que fisioterapias convencionais não conseguiram tratar
-                  em 2 anos!"
-                </p>
-              </div>
-
-              <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
-                <div class="flex items-center mb-4">
-                  <div
-                    class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"
-                  ></div>
-                  <div class="ml-4">
-                    <p class="font-bold">Roberto G.</p>
-                    <div class="flex text-[#A69668] mt-1">
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                      <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                    </div>
-                  </div>
-                </div>
-                <p class="italic">
-                  "O método exclusivo de alinhamento energético me trouxe uma
-                  paz interior que há anos não sentia. Lucas tem dom!"
-                </p>
-              </div>
-            </div>
-
-            <div class="mt-12 text-center">
-              <a
-                href="https://www.instagram.com/stories/highlights/17867941376521111/"
-                target="_blank"
-                class="btn bg-[#A69668] hover:bg-[#8e7d55] text-white px-8 py-3 rounded-full inline-flex items-center"
-              >
-                <i data-lucide="instagram" class="w-5 h-5 mr-2"></i>
-                Ver mais depoimentos no Instagram
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section class="py-16 bg-white">
-          <div class="container mx-auto px-4 max-w-6xl">
-            <div class="text-center mb-12">
-              <h2 class="text-3xl md:text-4xl font-bold text-[#41590C]">
-                Projetos que Transformam
-              </h2>
-              <p class="mt-4 max-w-2xl mx-auto text-gray-600">
-                Iniciativas pioneiras que levaram terapias integrativas para
-                diferentes comunidades
-              </p>
-              <div class="w-24 h-1 bg-[#6B8E23] mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div
-                class="bg-gradient-to-br from-[#F8FAF0] to-white rounded-xl shadow-lg overflow-hidden border border-green-100"
-              >
-                <div class="bg-[#41590C] p-4">
-                  <h3 class="text-white font-bold text-lg">
-                    Trabalho é Mais Saúde
-                  </h3>
-                </div>
-                <div class="p-6">
-                  <p class="text-gray-700">
-                    Programa que levou Reiki e terapias corporais para empresas,
-                    reduzindo em 40% os níveis de estresse e melhorando o clima
-                    organizacional.
-                  </p>
-                  <ul class="mt-4 space-y-2">
-                    <li class="flex items-center">
-                      <svg
-                        class="w-5 h-5 text-[#6B8E23] mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                      <span>Redução de afastamentos</span>
-                    </li>
-                    <li class="flex items-center">
-                      <svg
-                        class="w-5 h-5 text-[#6B8E23] mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                      <span>Melhora na produtividade</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div
-                class="bg-gradient-to-br from-[#F8FAF0] to-white rounded-xl shadow-lg overflow-hidden border border-green-100"
-              >
-                <div class="bg-[#41590C] p-4">
-                  <h3 class="text-white font-bold text-lg">
-                    Cuidar é Prosperar
-                  </h3>
-                </div>
-                <div class="p-6">
-                  <p class="text-gray-700">
-                    Integração de ginástica laboral e massoterapia que aumentou
-                    em 35% o engajamento de colaboradores em empresas parceiras.
-                  </p>
-                  <ul class="mt-4 space-y-2">
-                    <li class="flex items-center">
-                      <svg
-                        class="w-5 h-5 text-[#6B8E23] mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                      <span>Programas corporativos</span>
-                    </li>
-                    <li class="flex items-center">
-                      <svg
-                        class="w-5 h-5 text-[#6B8E23] mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                      <span>Saúde preventiva</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div
-                class="bg-gradient-to-br from-[#F8FAF0] to-white rounded-xl shadow-lg overflow-hidden border border-green-100"
-              >
-                <div class="bg-[#41590C] p-4">
-                  <h3 class="text-white font-bold text-lg">Projeto INSPIRAR</h3>
-                </div>
-                <div class="p-6">
-                  <p class="text-gray-700">
-                    Terapias integrativas para povos indígenas, respeitando
-                    saberes tradicionais e promovendo saúde comunitária.
-                  </p>
-                  <ul class="mt-4 space-y-2">
-                    <li class="flex items-center">
-                      <svg
-                        class="w-5 h-5 text-[#6B8E23] mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                      <span>Saúde intercultural</span>
-                    </li>
-                    <li class="flex items-center">
-                      <svg
-                        class="w-5 h-5 text-[#6B8E23] mr-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 13l4 4L19 7"
-                        ></path>
-                      </svg>
-                      <span>Integração de saberes</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-12 text-center">
-              <a
-                href="#empresas"
-                class="btn bg-[#41590C] hover:bg-[#35480a] text-white px-8 py-4 rounded-full text-lg font-medium"
-              >
-                Leve estas terapias para sua empresa
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section class="py-16 bg-gradient-to-b from-[#F2EAE4] to-white">
-          <div class="container mx-auto px-4 max-w-6xl">
-            <div class="text-center mb-12">
-              <h2 class="text-3xl md:text-4xl font-bold text-[#41590C]">
-                30 Anos Transformando Vidas
-              </h2>
-              <div class="w-24 h-1 bg-[#6B8E23] mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div class="bg-white p-6 rounded-xl shadow-lg">
-                <div class="flex items-start mb-6">
-                  <div class="bg-[#41590C] text-white p-3 rounded-full mr-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-semibold text-gray-800">
-                      Formação e Credenciais
-                    </h3>
-                    <p class="mt-2 text-gray-600">
-                      Bacharel em Fisioterapia e terapeuta certificado pela
-                      ABRATH (CRTH 14666), com especialização em terapias
-                      integrativas e saúde pública.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="flex items-start mb-6">
-                  <div class="bg-[#41590C] text-white p-3 rounded-full mr-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-6 w-6"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 class="text-xl font-semibold text-gray-800">
-                      Projetos Transformadores
-                    </h3>
-                    <p class="mt-2 text-gray-600">
-                      Idealizador de iniciativas inovadoras que levaram terapias
-                      integrativas para comunidades indígenas, empresas e
-                      unidades básicas de saúde.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="relative">
-                <div
-                  class="bg-[#41590C] bg-opacity-10 p-8 rounded-xl border border-[#41590C] border-opacity-30"
-                >
-                  <blockquote class="text-xl italic text-gray-700">
-                    "Minha missão é integrar conhecimentos científicos e
-                    terapias complementares para promover cura física, emocional
-                    e espiritual"
-                  </blockquote>
-                  <div class="mt-6 flex items-center">
-                    <div
-                      class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"
-                    ></div>
-                    <div class="ml-4">
-                      <p class="font-bold text-[#41590C]">Lucas Peiter</p>
-                      <p class="text-gray-600">Terapeuta Integrativo</p>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="absolute -bottom-6 -right-6 bg-white p-4 rounded-full shadow-lg"
-                >
-                  <img
-                    src="/imgs/abrath-logo.png"
-                    alt="Certificação ABRATH"
-                    class="w-12 h-12"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="servicos" class="py-16 md:py-24 bg-[#F2EAE4]">
+      <div class="container mx-auto px-4 py-16 md:py-24">
+        <!-- Seção de Serviços -->
+        <section id="servicos" class="py-16 md:py-24 bg-light">
           <div class="container mx-auto px-4 sm:px-6">
-            <div
-              class="text-center max-w-3xl mx-auto"
-              data-aos="zoom-in"
-              data-aos-duration="600"
-            >
-              <h2
-                class="text-3xl md:text-4xl font-semibold tracking-tight text-[#41590C]"
-              >
+            <div class="text-center max-w-3xl mx-auto" data-aos="zoom-in" data-aos-duration="600">
+              <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-[#41590C]">
                 Massoterapia Especializada
               </h2>
               <p class="mt-4 text-lg text-black/70">
-                Técnicas exclusivas para harmonização energética e bem-estar
-                físico
+                Técnicas exclusivas para harmonização energética e bem-estar físico
               </p>
             </div>
 
-            <div
-              class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
-              <!-- Massagem com Alinhamento de Chakras (destaque) -->
-              <article
-                class="card bg-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-2 border-[#A69668]"
-                data-aos="fade-up"
-                data-aos-duration="500"
-              >
-                <div class="card-body items-center text-center p-8">
-                  <div class="relative">
-                    <i
-                      data-lucide="sparkles"
-                      class="text-[#A69668] w-12 h-12"
-                    ></i>
-                    <span
-                      class="absolute -top-2 -right-2 bg-[#A69668] text-white text-xs font-bold px-2 py-1 rounded-full"
-                      >EXCLUSIVO</span
-                    >
+            <!-- Grid de Serviços -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <template x-for="(service, index) in services" :key="index">
+                <article class="card bg-white shadow-xl service-card border-2"
+                  :class="{'border-[#A69668]': service.highlight}" data-aos="fade-up" :data-aos-duration="500"
+                  :data-aos-delay="index * 200">
+                  <div class="card-body items-center text-center p-8">
+                    <div class="relative">
+                      <i :data-lucide="service.icon" class="text-[#A69668] w-12 h-12"></i>
+                      <span x-show="service.highlight"
+                        class="absolute -top-2 -right-2 bg-[#A69668] text-white text-xs font-bold px-2 py-1 rounded-full">
+                        EXCLUSIVO
+                      </span>
+                    </div>
+                    <h3 class="card-title text-2xl font-medium mt-4" x-text="service.name"></h3>
+                    <p class="mt-2 font-light" x-text="service.description"></p>
+                    <div class="card-actions mt-6">
+                      <button @click="openModal(service)" class="btn text-white rounded-full px-6"
+                        :class="service.highlight ? 'bg-[#A69668] hover:bg-[#8e7d55]' : 'bg-[#41590C] hover:bg-[#35480a]'">
+                        Agendar Sessão
+                      </button>
+                    </div>
                   </div>
-                  <h3 class="card-title text-2xl font-medium mt-4">
-                    Alinhamento de Chakras
-                  </h3>
-                  <p class="mt-2 font-light">
-                    Método único que combina massagem terapêutica com equilíbrio
-                    energético para restauração completa.
-                  </p>
-                  <div class="card-actions mt-6">
-                    <button
-                      @click="openModal('Alinhamento de Chakras')"
-                      class="btn bg-[#A69668] hover:bg-[#8e7d55] text-white rounded-full px-6 transition-transform duration-300 hover:scale-105"
-                    >
-                      Agendar Sessão
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Massagem Descontraturadora -->
-              <article
-                class="card bg-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
-                data-aos="fade-up"
-                data-aos-duration="500"
-                data-aos-delay="200"
-              >
-                <div class="card-body items-center text-center p-8">
-                  <i
-                    data-lucide="armchair"
-                    class="text-[#A69668] w-12 h-12"
-                  ></i>
-                  <h3 class="card-title text-2xl font-medium mt-4">
-                    Massagem Descontraturadora
-                  </h3>
-                  <p class="mt-2 font-light">
-                    Liberação de tensões profundas e alívio de dores musculares
-                    crônicas com técnicas avançadas.
-                  </p>
-                  <div class="card-actions mt-6">
-                    <button
-                      @click="openModal('Massagem Descontraturadora')"
-                      class="btn bg-[#41590C] hover:bg-[#35480a] text-white rounded-full px-6 transition-transform duration-300 hover:scale-105"
-                    >
-                      Agendar Sessão
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Bambuterapia -->
-              <article
-                class="card bg-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
-                data-aos="fade-up"
-                data-aos-duration="500"
-                data-aos-delay="400"
-              >
-                <div class="card-body items-center text-center p-8">
-                  <i data-lucide="bamboo" class="text-[#A69668] w-12 h-12"></i>
-                  <h3 class="card-title text-2xl font-medium mt-4">
-                    Bambuterapia
-                  </h3>
-                  <p class="mt-2 font-light">
-                    Técnica com bambus para modelagem corporal, redução de
-                    medidas e melhora da circulação.
-                  </p>
-                  <div class="card-actions mt-6">
-                    <button
-                      @click="openModal('Bambuterapia')"
-                      class="btn bg-[#41590C] hover:bg-[#35480a] text-white rounded-full px-6 transition-transform duration-300 hover:scale-105"
-                    >
-                      Agendar Sessão
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <!-- Adicionando mais serviços de massagem -->
-              <article
-                class="card bg-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
-                data-aos="fade-up"
-                data-aos-duration="500"
-                data-aos-delay="600"
-              >
-                <div class="card-body items-center text-center p-8">
-                  <i
-                    data-lucide="footprints"
-                    class="text-[#A69668] w-12 h-12"
-                  ></i>
-                  <h3 class="card-title text-2xl font-medium mt-4">
-                    Massagem Tântrica/Nuru
-                  </h3>
-                  <p class="mt-2 font-light">
-                    Técnica que promove conexão profunda e liberação emocional
-                    através do toque terapêutico.
-                  </p>
-                  <div class="card-actions mt-6">
-                    <button
-                      @click="openModal('Massagem Tântrica/Nuru')"
-                      class="btn bg-[#41590C] hover:bg-[#35480a] text-white rounded-full px-6 transition-transform duration-300 hover:scale-105"
-                    >
-                      Agendar Sessão
-                    </button>
-                  </div>
-                </div>
-              </article>
-
-              <article
-                class="card bg-white shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
-                data-aos="fade-up"
-                data-aos-duration="500"
-                data-aos-delay="800"
-              >
-                <div class="card-body items-center text-center p-8">
-                  <i
-                    data-lucide="thermometer"
-                    class="text-[#A69668] w-12 h-12"
-                  ></i>
-                  <h3 class="card-title text-2xl font-medium mt-4">
-                    Pedras Quentes
-                  </h3>
-                  <p class="mt-2 font-light">
-                    Combinação de massagem com pedras vulcânicas aquecidas para
-                    relaxamento profundo.
-                  </p>
-                  <div class="card-actions mt-6">
-                    <button
-                      @click="openModal('Massagem com Pedras Quentes')"
-                      class="btn bg-[#41590C] hover:bg-[#35480a] text-white rounded-full px-6 transition-transform duration-300 hover:scale-105"
-                    >
-                      Agendar Sessão
-                    </button>
-                  </div>
-                </div>
-              </article>
+                </article>
+              </template>
             </div>
           </div>
         </section>
-      </main>
 
-      <section id="empresas" class="py-16 bg-[#F8FAF0]">
-        <div class="container mx-auto px-4 max-w-5xl">
-          <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div class="md:flex">
-              <div
-                class="md:w-2/5 bg-gradient-to-br from-[#41590C] to-[#6B8E23] p-8 text-white"
-              >
-                <h3 class="text-2xl font-bold mb-4">Programas Corporativos</h3>
-                <p class="mb-6">
-                  Soluções personalizadas para empresas que valorizam o
-                  bem-estar de seus colaboradores:
+        <!-- Modal de Agendamento -->
+        <dialog id="agendamento_modal" class="modal" x-ref="modal">
+          <div class="modal-box bg-white p-8 rounded-2xl max-w-md" x-show="isModalVisible"
+            x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"
+            x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-90">
+            <form method="dialog">
+              <button class="btn btn-sm btn-circle btn-ghost absolute right-4 top-4 text-gray-500 hover:text-[#A69668]">
+                ✕
+              </button>
+            </form>
+
+            <div class="text-center mb-2">
+              <i :data-lucide="selectedService?.icon || 'calendar-check'" class="w-12 h-12 text-[#A69668] mx-auto"></i>
+              <h3 class="font-bold text-xl mt-2">
+                Agendar
+                <span class="text-[#A69668]" x-text="selectedService?.name || ''"></span>
+              </h3>
+              <p class="text-gray-600 mt-1">
+                Preencha os dados para reservar sua sessão
+              </p>
+            </div>
+
+            <h3 class="font-bold text-lg mb-4">
+              Pré-agendamento para
+              <span class="text-[#41590C]" x-text="selectedService?.name || ''"></span>
+            </h3>
+
+            <!-- Opções de Fluxo -->
+            <div class="mb-6">
+              <h4 class="font-medium mb-3">Como deseja proceder?</h4>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="payment-option p-4 rounded-xl cursor-pointer"
+                  :class="{'selected': paymentOption === 'pay-first'}" @click="paymentOption = 'pay-first'">
+                  <i data-lucide="credit-card" class="w-8 h-8 mx-auto text-[#41590C]"></i>
+                  <p class="text-center mt-2 font-medium">Pagar primeiro</p>
+                </div>
+                <div class="payment-option p-4 rounded-xl cursor-pointer"
+                  :class="{'selected': paymentOption === 'schedule-first'}" @click="paymentOption = 'schedule-first'">
+                  <i data-lucide="calendar" class="w-8 h-8 mx-auto text-[#A69668]"></i>
+                  <p class="text-center mt-2 font-medium">Agendar primeiro</p>
+                </div>
+              </div>
+            </div>
+
+            <form @submit.prevent="handlePreAgendamento" class="space-y-4">
+              <label class="form-control w-full">
+                <div class="label">
+                  <span class="label-text">Seu Nome e Sobrenome*</span>
+                </div>
+                <input x-model="nomeCliente" type="text" placeholder="Digite seu nome completo"
+                  class="input input-bordered w-full" required>
+              </label>
+
+              <label class="form-control w-full">
+                <div class="label">
+                  <span class="label-text">Data de Preferência*</span>
+                </div>
+                <input x-model="dataAgendamento" :min="today" type="date" class="input input-bordered w-full" required>
+              </label>
+
+              <label class="form-control w-full">
+                <div class="label">
+                  <span class="label-text">Horário de preferência (opcional)</span>
+                </div>
+                <select x-model="horarioAgendamento" class="select select-bordered w-full font-light">
+                  <option disabled selected value="">Selecione um horário</option>
+                  <template x-for="time in timeSlots">
+                    <option :value="time" x-text="time"></option>
+                  </template>
+                </select>
+              </label>
+
+              <div class="modal-action mt-6 flex flex-col">
+                <button type="submit" class="btn w-full py-3 rounded-full text-lg font-medium"
+                  :class="paymentOption === 'pay-first' ? 'bg-[#41590C] hover:bg-[#35480a]' : 'bg-[#A69668] hover:bg-[#8e7d55]'">
+                  <template x-if="paymentOption === 'pay-first'">
+                    <span class="flex items-center justify-center">
+                      <i data-lucide="credit-card" class="w-5 h-5 mr-2"></i>
+                      Pagar e Agendar
+                    </span>
+                  </template>
+                  <template x-if="paymentOption === 'schedule-first'">
+                    <span class="flex items-center justify-center">
+                      <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i>
+                      Enviar Agendamento
+                    </span>
+                  </template>
+                </button>
+
+                <div class="mt-4 text-sm text-gray-500" x-show="paymentOption === 'pay-first'">
+                  <i data-lucide="info" class="w-4 h-4 inline mr-1"></i>
+                  Você será redirecionado para a página de pagamento
+                </div>
+
+                <div class="mt-4 text-sm text-gray-500" x-show="paymentOption === 'schedule-first'">
+                  <i data-lucide="info" class="w-4 h-4 inline mr-1"></i>
+                  Envie seu agendamento e pague posteriormente
+                </div>
+
+                <p class="text-sm text-gray-500 mt-3">
+                  <i data-lucide="lock" class="w-4 h-4 inline mr-1"></i>
+                  Seus dados estão seguros conosco
                 </p>
-                <ul class="space-y-3">
+              </div>
+            </form>
+          </div>
+          <form method="dialog" class="modal-backdrop">
+            <button @click="isModalVisible = false">close</button>
+          </form>
+        </dialog>
+      </div>
+
+      <section id="filosofia" class="py-16 md:py-24 bg-[#41590C] text-white">
+        <div class="container mx-auto px-4 sm:px-6 text-center max-w-3xl" data-aos="fade-right">
+          <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">
+            Cuidar da energia é cuidar da vida
+          </h2>
+          <p class="mt-6 text-lg font-light opacity-80">
+            Meu propósito é ser um canal de auxílio para sua saúde integral.
+            Acredito que o equilíbrio entre corpo, mente e espírito é a chave
+            para uma vida plena, e utilizo técnicas terapêuticas para
+            facilitar seu processo de cura e autoconhecimento.
+          </p>
+        </div>
+      </section>
+
+      <section class="py-16 bg-[#41590C] text-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold">
+              O que dizem meus clientes
+            </h2>
+            <p class="mt-4 max-w-2xl mx-auto opacity-80">
+              Experiências transformadoras com o método exclusivo de
+              alinhamento
+            </p>
+            <div class="w-24 h-1 bg-[#A69668] mx-auto mt-4"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+              <div class="flex items-center mb-4">
+                <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                <div class="ml-4">
+                  <p class="font-bold">Carlos A.</p>
+                  <div class="flex text-[#A69668] mt-1">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="italic">
+                "O alinhamento de chakras do Lucas mudou minha vida. Após 3
+                sessões, minha ansiedade diminuiu 90% e voltei a dormir como
+                há anos não dormia!"
+              </p>
+            </div>
+
+            <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+              <div class="flex items-center mb-4">
+                <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                <div class="ml-4">
+                  <p class="font-bold">Mariana F.</p>
+                  <div class="flex text-[#A69668] mt-1">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="italic">
+                "A massagem descontraturadora resolveu minha dor crônica nas
+                costas que fisioterapias convencionais não conseguiram tratar
+                em 2 anos!"
+              </p>
+            </div>
+
+            <div class="bg-white/10 p-6 rounded-xl backdrop-blur-sm">
+              <div class="flex items-center mb-4">
+                <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                <div class="ml-4">
+                  <p class="font-bold">Roberto G.</p>
+                  <div class="flex text-[#A69668] mt-1">
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                  </div>
+                </div>
+              </div>
+              <p class="italic">
+                "O método exclusivo de alinhamento energético me trouxe uma
+                paz interior que há anos não sentia. Lucas tem dom!"
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <a href="https://www.instagram.com/stories/highlights/17867941376521111/" target="_blank"
+              class="btn bg-[#A69668] hover:bg-[#8e7d55] text-white px-8 py-3 rounded-full inline-flex items-center">
+              <i data-lucide="instagram" class="w-5 h-5 mr-2"></i>
+              Ver mais depoimentos no Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#41590C]">
+              Projetos que Transformam
+            </h2>
+            <p class="mt-4 max-w-2xl mx-auto text-gray-600">
+              Iniciativas pioneiras que levaram terapias integrativas para
+              diferentes comunidades
+            </p>
+            <div class="w-24 h-1 bg-[#6B8E23] mx-auto mt-4"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+              class="bg-gradient-to-br from-[#F8FAF0] to-white rounded-xl shadow-lg overflow-hidden border border-green-100">
+              <div class="bg-[#41590C] p-4">
+                <h3 class="text-white font-bold text-lg">
+                  Trabalho é Mais Saúde
+                </h3>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700">
+                  Programa que levou Reiki e terapias corporais para empresas,
+                  reduzindo em 40% os níveis de estresse e melhorando o clima
+                  organizacional.
+                </p>
+                <ul class="mt-4 space-y-2">
                   <li class="flex items-center">
-                    <svg
-                      class="w-5 h-5 text-green-300 mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
+                    <svg class="w-5 h-5 text-[#6B8E23] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    <span>Ginástica laboral</span>
+                    <span>Redução de afastamentos</span>
                   </li>
                   <li class="flex items-center">
-                    <svg
-                      class="w-5 h-5 text-green-300 mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
+                    <svg class="w-5 h-5 text-[#6B8E23] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    <span>Sessões de massagem in company</span>
-                  </li>
-                  <li class="flex items-center">
-                    <svg
-                      class="w-5 h-5 text-green-300 mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                    <span>Workshops de autocuidado</span>
-                  </li>
-                  <li class="flex items-center">
-                    <svg
-                      class="w-5 h-5 text-green-300 mr-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                    <span>Programas antiestresse</span>
+                    <span>Melhora na produtividade</span>
                   </li>
                 </ul>
               </div>
+            </div>
 
-              <div class="md:w-3/5 p-8">
-                <h3 class="text-2xl font-bold text-[#41590C] mb-4">
-                  Solicite uma proposta
+            <div
+              class="bg-gradient-to-br from-[#F8FAF0] to-white rounded-xl shadow-lg overflow-hidden border border-green-100">
+              <div class="bg-[#41590C] p-4">
+                <h3 class="text-white font-bold text-lg">
+                  Cuidar é Prosperar
                 </h3>
-                <p class="text-gray-600 mb-6">
-                  Preencha o formulário e levaremos bem-estar para sua empresa:
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700">
+                  Integração de ginástica laboral e massoterapia que aumentou
+                  em 35% o engajamento de colaboradores em empresas parceiras.
                 </p>
+                <ul class="mt-4 space-y-2">
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-[#6B8E23] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Programas corporativos</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-[#6B8E23] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Saúde preventiva</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
-                <form class="space-y-4">
-                  <div>
-                    <label class="block text-gray-700 mb-2" for="empresa"
-                      >Nome da Empresa</label
-                    >
-                    <input
-                      type="text"
-                      id="empresa"
-                      class="w-full px-4 py-3 border rounded-lg"
-                    />
+            <div
+              class="bg-gradient-to-br from-[#F8FAF0] to-white rounded-xl shadow-lg overflow-hidden border border-green-100">
+              <div class="bg-[#41590C] p-4">
+                <h3 class="text-white font-bold text-lg">Projeto INSPIRAR</h3>
+              </div>
+              <div class="p-6">
+                <p class="text-gray-700">
+                  Terapias integrativas para povos indígenas, respeitando
+                  saberes tradicionais e promovendo saúde comunitária.
+                </p>
+                <ul class="mt-4 space-y-2">
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-[#6B8E23] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Saúde intercultural</span>
+                  </li>
+                  <li class="flex items-center">
+                    <svg class="w-5 h-5 text-[#6B8E23] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>Integração de saberes</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12 text-center">
+            <a href="#empresas"
+              class="btn bg-[#41590C] hover:bg-[#35480a] text-white px-8 py-4 rounded-full text-lg font-medium">
+              Leve estas terapias para sua empresa
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-16 bg-gradient-to-b from-[#F2EAE4] to-white">
+        <div class="container mx-auto px-4 max-w-6xl">
+          <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#41590C]">
+              30 Anos Transformando Vidas
+            </h2>
+            <div class="w-24 h-1 bg-[#6B8E23] mx-auto mt-4"></div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+              <div class="flex items-start mb-6">
+                <div class="bg-[#41590C] text-white p-3 rounded-full mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800">
+                    Formação e Credenciais
+                  </h3>
+                  <p class="mt-2 text-gray-600">
+                    Bacharel em Fisioterapia e terapeuta certificado pela
+                    ABRATH (CRTH 14666), com especialização em terapias
+                    integrativas e saúde pública.
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start mb-6">
+                <div class="bg-[#41590C] text-white p-3 rounded-full mr-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-800">
+                    Projetos Transformadores
+                  </h3>
+                  <p class="mt-2 text-gray-600">
+                    Idealizador de iniciativas inovadoras que levaram terapias
+                    integrativas para comunidades indígenas, empresas e
+                    unidades básicas de saúde.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative">
+              <div class="bg-[#41590C] bg-opacity-10 p-8 rounded-xl border border-[#41590C] border-opacity-30">
+                <blockquote class="text-xl italic text-gray-700">
+                  "Minha missão é integrar conhecimentos científicos e
+                  terapias complementares para promover cura física, emocional
+                  e espiritual"
+                </blockquote>
+                <div class="mt-6 flex items-center">
+                  <div class="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16"></div>
+                  <div class="ml-4">
+                    <p class="font-bold text-[#41590C]">Lucas Peiter</p>
+                    <p class="text-gray-600">Terapeuta Integrativo</p>
                   </div>
-
-                  <div>
-                    <label class="block text-gray-700 mb-2" for="contato"
-                      >Contato Responsável</label
-                    >
-                    <input
-                      type="text"
-                      id="contato"
-                      class="w-full px-4 py-3 border rounded-lg"
-                    />
-                  </div>
-
-                  <div>
-                    <label class="block text-gray-700 mb-2" for="funcionarios"
-                      >Número de Funcionários</label
-                    >
-                    <select
-                      id="funcionarios"
-                      class="w-full px-4 py-3 border rounded-lg"
-                    >
-                      <option>1-10</option>
-                      <option>11-50</option>
-                      <option>51-200</option>
-                      <option>201-500</option>
-                      <option>500+</option>
-                    </select>
-                  </div>
-
-                  <button
-                    type="submit"
-                    class="btn btn-primary w-full py-3 rounded-full"
-                  >
-                    Enviar Proposta
-                  </button>
-                </form>
+                </div>
+              </div>
+              <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-full shadow-lg">
+                <img src="/imgs/abrath-logo.png" alt="Certificação ABRATH" class="w-12 h-12" />
               </div>
             </div>
           </div>
         </div>
       </section>
+    </main>
 
-      <!-- Botão flutuante do WhatsApp -->
-      <div class="fixed bottom-6 right-6 z-50">
-        <a
-          href="https://wa.me/555199291480"
-          target="_blank"
-          class="bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-700 transition-all"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="white"
-          >
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
-            />
-          </svg>
-        </a>
-      </div>
-
-      <footer
-        class="footer p-10 bg-[#6B7332] text-white flex flex-col items-center text-center space-y-8 md:flex-row md:justify-between md:items-start md:text-left md:space-y-0"
-      >
-        <aside
-          class="flex flex-col items-center md:items-start"
-          data-aos="fade-right"
-        >
-          <div class="flex items-center mb-4">
-            <img
-              src="/imgs/logo-branca.png"
-              alt="Lucas Peiter Massoterapia"
-              class="h-12"
-            />
-            <h3 class="font-semibold text-lg ml-2">Lucas Peiter</h3>
-          </div>
-          <p class="font-light opacity-80">
-            Terapia Integrativa e Complementar<br />
-            CRTH 14666 - ABRATH<br />
-            CNPJ: 46.302.671/0001-08<br />
-            Rua Lauro Linhares, 728, Sala 301<br />
-            Trindade, Florianópolis - SC
-          </p>
-          <div class="mt-4 flex space-x-4">
-            <a
-              href="https://wa.me/555199291480"
-              target="_blank"
-              class="text-white hover:text-[#A69668] transition-colors"
-            >
-              <i data-lucide="phone" class="w-6 h-6"></i>
-            </a>
-            <a
-              href="mailto:contato@lucasmassoterapia.com"
-              class="text-white hover:text-[#A69668] transition-colors"
-            >
-              <i data-lucide="mail" class="w-6 h-6"></i>
-            </a>
-          </div>
-        </aside>
-
-        <div
-          class="flex flex-col items-center md:items-start"
-          data-aos="fade-left"
-        >
-          <div class="w-full max-w-sm md:max-w-md lg:max-w-lg mb-4">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d442.0313311833394!2d-48.5250855!3d-27.5857577!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9527385c6ccbc32b%3A0xc1b0ccec27780ba!2sR.%20Lauro%20Linhares%2C%20728%20-%20Trindade%2C%20Florian%C3%B3polis%20-%20SC%2C%2088036-001!5e0!3m2!1spt-BR!2sbr!4v1750897954675!5m2!1spt-BR!2sbr"
-              class="w-full h-64 rounded-lg border-2 border-white/20"
-              style="border: 0"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-          <nav>
-            <h6 class="footer-title opacity-100">Redes Sociais</h6>
-            <div class="flex space-x-4">
-              <a
-                href="https://instagram.com/lucasmassofloripa"
-                target="_blank"
-                class="text-white hover:text-[#A69668] transition-colors"
-              >
-                <i data-lucide="instagram" class="w-6 h-6"></i>
-              </a>
-              <a
-                href="https://facebook.com/seu_perfil"
-                target="_blank"
-                class="text-white hover:text-[#A69668] transition-colors"
-              >
-                <i data-lucide="facebook" class="w-6 h-6"></i>
-              </a>
-              <a
-                href="https://tiktok.com/@seu_perfil"
-                target="_blank"
-                class="text-white hover:text-[#A69668] transition-colors"
-              >
-                <i data-lucide="tiktok" class="w-6 h-6"></i>
-              </a>
-            </div>
-          </nav>
-        </div>
-      </footer>
-
-      <dialog id="agendamento_modal" class="modal" x-ref="modal">
-        <div
-          class="modal-box bg-white p-8 rounded-2xl max-w-md"
-          x-show="isModalVisible"
-          x-transition:enter="transition ease-out duration-300"
-          x-transition:enter-start="opacity-0 scale-90"
-          x-transition:enter-end="opacity-100 scale-100"
-          x-transition:leave="transition ease-in duration-200"
-          x-transition:leave-start="opacity-100 scale-100"
-          x-transition:leave-end="opacity-0 scale-90"
-        >
-          <form method="dialog">
-            <button
-              class="btn btn-sm btn-circle btn-ghost absolute right-4 top-4 text-gray-500 hover:text-[#A69668]"
-            >
-              ✕
-            </button>
-          </form>
-
-          <div class="text-center mb-2">
-            <i
-              data-lucide="calendar-check"
-              class="w-12 h-12 text-[#A69668] mx-auto"
-            ></i>
-            <h3 class="font-bold text-xl mt-2">
-              Agendar
-              <span class="text-[#A69668]" x-text="servicoSelecionado"></span>
-            </h3>
-            <p class="text-gray-600 mt-1">
-              Preencha os dados para reservar sua sessão
-            </p>
-          </div>
-
-          <h3 class="font-bold text-lg mb-4">
-            Pré-agendamento para
-            <span class="text-[#41590C]" x-text="servicoSelecionado"></span>
-          </h3>
-          <form @submit.prevent="handlePreAgendamento" class="space-y-4">
-            <label class="form-control w-full">
-              <div class="label">
-                <span class="label-text">Seu Nome e Sobrenome*</span>
-              </div>
-              <input
-                x-model="nomeCliente"
-                type="text"
-                placeholder="Digite seu nome completo"
-                class="input input-bordered w-full"
-                required
-              />
-            </label>
-            <label class="form-control w-full">
-              <div class="label">
-                <span class="label-text">Data de Preferência (opcional)</span>
-              </div>
-              <input
-                x-model="dataAgendamento"
-                :min="today"
-                type="date"
-                class="input input-bordered w-full"
-              />
-            </label>
-            <label class="form-control w-full">
-              <div class="label">
-                <span class="label-text"
-                  >Horário de preferência (opcional)</span
-                >
-              </div>
-              <select
-                x-model="horarioAgendamento"
-                class="select select-bordered w-full font-light"
-              >
-                <option disabled selected value="">Selecione um horário</option>
-                <option value="08:00">08:00</option>
-                <option value="08:30">08:30</option>
-                <option value="09:00">09:00</option>
-                <option value="09:30">09:30</option>
-                <option value="10:00">10:00</option>
-                <option value="10:30">10:30</option>
-                <option value="11:00">11:00</option>
-                <option value="11:30">11:30</option>
-                <option value="12:00">12:00</option>
-                <option value="13:00">13:00</option>
-                <option value="13:30">13:30</option>
-                <option value="14:00">14:00</option>
-                <option value="14:30">14:30</option>
-                <option value="15:00">15:00</option>
-                <option value="15:30">15:30</option>
-                <option value="16:00">16:00</option>
-                <option value="16:30">16:30</option>
-                <option value="17:00">17:00</option>
-                <option value="17:30">17:30</option>
-                <option value="18:00">18:00</option>
-                <option value="18:30">18:30</option>
-                <option value="19:00">19:00</option>
-              </select>
-            </label>
-            <div class="modal-action mt-6 flex flex-col">
-              <button
-                type="submit"
-                class="btn bg-[#A69668] hover:bg-[#8e7d55] text-white w-full py-3 rounded-full text-lg font-medium shadow-md transition-all duration-300 transform hover:scale-[1.02]"
-              >
-                <i data-lucide="message-circle" class="w-5 h-5 mr-2"></i>
-                Enviar via WhatsApp
-              </button>
-              <p class="text-sm text-gray-500 mt-3">
-                <i data-lucide="lock" class="w-4 h-4 inline mr-1"></i>
-                Seus dados estão seguros conosco
+    <section id="empresas" class="py-16 bg-[#F8FAF0]">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+          <div class="md:flex">
+            <div class="md:w-2/5 bg-gradient-to-br from-[#41590C] to-[#6B8E23] p-8 text-white">
+              <h3 class="text-2xl font-bold mb-4">Programas Corporativos</h3>
+              <p class="mb-6">
+                Soluções personalizadas para empresas que valorizam o
+                bem-estar de seus colaboradores:
               </p>
+              <ul class="space-y-3">
+                <li class="flex items-center">
+                  <svg class="w-5 h-5 text-green-300 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Ginástica laboral</span>
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-5 h-5 text-green-300 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Sessões de massagem in company</span>
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-5 h-5 text-green-300 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Workshops de autocuidado</span>
+                </li>
+                <li class="flex items-center">
+                  <svg class="w-5 h-5 text-green-300 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span>Programas antiestresse</span>
+                </li>
+              </ul>
             </div>
-          </form>
+          </div>
         </div>
-        <form method="dialog" class="modal-backdrop">
-          <button @click="isModalVisible = false">close</button>
-        </form>
-      </dialog>
+      </div>
+    </section>
+
+    <div class="fixed bottom-6 right-6 z-50">
+      <a href="https://wa.me/555199291480" target="_blank"
+        class="bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-700 transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+      </a>
     </div>
-    <script>
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
-        });
-      });
 
-      function trackConversion(event) {
-        if (typeof gtag !== "undefined") {
-          gtag("event", "conversion", {
-            send_to: "AW-123456789/AbC-D_efGhIj12KlMnOpQ",
-            event_callback: function () {},
-          });
+    <footer
+      class="footer p-10 bg-[#6B7332] text-white flex flex-col items-center text-center space-y-8 md:flex-row md:justify-between md:items-start md:text-left md:space-y-0">
+      <aside class="flex flex-col items-center md:items-start" data-aos="fade-right">
+        <div class="flex items-center mb-4">
+          <img src="/imgs/logo-branca.png" alt="Lucas Peiter Massoterapia" class="h-12" />
+          <h3 class="font-semibold text-lg ml-2">Lucas Peiter</h3>
+        </div>
+        <p class="font-light opacity-80">
+          Terapia Integrativa e Complementar<br />
+          CRTH 14666 - ABRATH<br />
+          CNPJ: 46.302.671/0001-08<br />
+          Rua Lauro Linhares, 728, Sala 301<br />
+          Trindade, Florianópolis - SC
+        </p>
+        <div class="mt-4 flex space-x-4">
+          <a href="https://wa.me/555199291480" target="_blank"
+            class="text-white hover:text-[#A69668] transition-colors">
+            <i data-lucide="phone" class="w-6 h-6"></i>
+          </a>
+          <a href="mailto:contato@lucasmassoterapia.com" class="text-white hover:text-[#A69668] transition-colors">
+            <i data-lucide="mail" class="w-6 h-6"></i>
+          </a>
+        </div>
+      </aside>
+
+      <div class="flex flex-col items-center md:items-start" data-aos="fade-left">
+        <div class="w-full max-w-sm md:max-w-md lg:max-w-lg mb-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d442.0313311833394!2d-48.5250855!3d-27.5857577!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9527385c6ccbc32b%3A0xc1b0ccec27780ba!2sR.%20Lauro%20Linhares%2C%20728%20-%20Trindade%2C%20Florian%C3%B3polis%20-%20SC%2C%2088036-001!5e0!3m2!1spt-BR!2sbr!4v1750897954675!5m2!1spt-BR!2sbr"
+            class="w-full h-64 rounded-lg border-2 border-white/20" style="border: 0" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <nav>
+          <h6 class="footer-title opacity-100">Redes Sociais</h6>
+          <div class="flex space-x-4">
+            <a href="https://instagram.com/lucasmassofloripa" target="_blank"
+              class="text-white hover:text-[#A69668] transition-colors">
+              <i data-lucide="instagram" class="w-6 h-6"></i>
+            </a>
+            <a href="https://facebook.com/seu_perfil" target="_blank"
+              class="text-white hover:text-[#A69668] transition-colors">
+              <i data-lucide="facebook" class="w-6 h-6"></i>
+            </a>
+            <!-- Removido TikTok por enquanto -->
+          </div>
+        </nav>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('alpine:init', () => {
+      Alpine.data('app', () => ({
+        // Dados do modal
+        servicoSelecionado: "",
+        selectedService: null,
+        nomeCliente: "",
+        dataAgendamento: "",
+        horarioAgendamento: "",
+        isModalVisible: false,
+        paymentOption: "pay-first", // pay-first ou schedule-first
+        today: new Date().toISOString().split('T')[0],
+        toast: {
+          show: false,
+          message: "",
+          type: "success",
+          icon: "check-circle"
+        },
+
+        // Horários disponíveis
+        timeSlots: [
+          '08:00', '08:30', '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
+          '12:00', '13:00', '13:30', '14:00', '14:30', '15:00', '15:30', '16:00',
+          '16:30', '17:00', '17:30', '18:00', '18:30', '19:00'
+        ],
+
+        // Lista de serviços com links de pagamento
+        services: [
+          {
+            name: "Alinhamento de Chakras",
+            description: "Método único que combina massagem terapêutica com equilíbrio energético para restauração completa.",
+            icon: "sparkles",
+            highlight: true,
+            paymentLink: "https://www.asaas.com/c/jcnmpmb4wc8cadms" // Adicionado link
+          },
+          {
+            name: "Massagem Descontraturadora",
+            description: "Liberação de tensões profundas e alívio de dores musculares crônicas com técnicas avançadas.",
+            icon: "armchair",
+            highlight: false,
+            paymentLink: "https://www.asaas.com/c/jcnmpmb4wc8cadms"
+          },
+          {
+            name: "Bambuterapia",
+            description: "Técnica com bambus para modelagem corporal, redução de medidas e melhora da circulação.",
+            icon: "feather", // Alterado para feather
+            highlight: false,
+            paymentLink: "https://www.asaas.com/c/jcnmpmb4wc8cadms"
+          },
+          {
+            name: "Massagem Tântrica/Nuru",
+            description: "Técnica que promove conexão profunda e liberação emocional através do toque terapêutico.",
+            icon: "footprints",
+            highlight: false,
+            paymentLink: "https://www.asaas.com/c/ovx5v77xywnfueo6"
+          },
+          {
+            name: "Pedras Quentes",
+            description: "Combinação de massagem com pedras vulcânicas aquecidas para relaxamento profundo.",
+            icon: "thermometer",
+            highlight: false,
+            paymentLink: "https://www.asaas.com/c/jcnmpmb4wc8cadms"
+          },
+          {
+            name: "Reiki (1 hora)",
+            description: "Terapia energética para equilíbrio e harmonização do corpo e mente.",
+            icon: "zap",
+            highlight: false,
+            paymentLink: "https://www.asaas.com/c/kcliyoousfrb8njm"
+          },
+          {
+            name: "Reiki (30 minutos)",
+            description: "Sessão reduzida de Reiki para alívio rápido de estresse e energização.",
+            icon: "zap",
+            highlight: false,
+            paymentLink: "https://www.asaas.com/c/w8so43nozjcsur9d"
+          },
+          {
+            name: "Pacote 5 sessões convencionais",
+            description: "Pacote com 5 sessões de massagens convencionais ou Reiki (economize 15%).",
+            icon: "package",
+            highlight: true,
+            paymentLink: "https://www.asaas.com/c/b1jb1todyw3a0om1"
+          },
+          {
+            name: "Pacote 10 sessões convencionais",
+            description: "Pacote com 10 sessões de massagens convencionais ou Reiki (economize 20%).",
+            icon: "package",
+            highlight: true,
+            paymentLink: "https://www.asaas.com/c/jp8bu7euwqkxfn4d"
+          },
+          {
+            name: "Ciclo 5 sessões de Tântrica/Nuru",
+            description: "Ciclo com 5 sessões de massagem Tântrica ou Nuru (economize 10%).",
+            icon: "package",
+            highlight: true,
+            paymentLink: "https://www.asaas.com/c/hwdbgimygbnj5olv"
+          }
+        ],
+
+        // Funções
+        openModal(service) {
+          this.selectedService = service;
+          this.servicoSelecionado = service.name;
+          this.isModalVisible = true;
+          this.$refs.modal.showModal();
+          this.paymentOption = "pay-first"; // Reset para opção padrão
+        },
+
+        showToast(message, type = "success", icon = "check-circle") {
+          this.toast = {
+            show: true,
+            message,
+            type,
+            icon
+          };
+
+          setTimeout(() => {
+            this.toast.show = false;
+          }, 5000);
+        },
+
+        handlePreAgendamento() {
+          if (!this.nomeCliente) {
+            this.showToast("Por favor, preencha seu nome.", "error", "alert-circle");
+            return;
+          }
+          
+          if (!this.dataAgendamento) {
+            this.showToast("Por favor, selecione uma data.", "error", "alert-circle");
+            return;
+          }
+
+          const numeroWhatsapp = "555199291480";
+
+          // Fluxo: Pagar primeiro
+          if (this.paymentOption === "pay-first" && this.selectedService.paymentLink) {
+            window.open(this.selectedService.paymentLink, '_blank');
+            this.showToast(
+              `Redirecionado para pagamento. Após concluir, envie o comprovante pelo WhatsApp.`,
+              "info",
+              "credit-card"
+            );
+          }
+
+          // Mensagem para WhatsApp em ambos os fluxos
+          let texto = `Olá, Lucas! Gostaria de fazer um pré-agendamento para ${this.servicoSelecionado}.`;
+          texto += `\n\n*Nome:* ${this.nomeCliente}`;
+          texto += `\n*Data Sugerida:* ${this.dataAgendamento}`;
+          
+          if (this.horarioAgendamento) {
+            texto += `\n*Horário Sugerido:* ${this.horarioAgendamento}`;
+          }
+
+          if (this.paymentOption === "pay-first") {
+            texto += `\n*Pagamento:* Estou no processo de pagamento e enviarei o comprovante.`;
+          } else {
+            texto += `\n*Pagamento:* Preferi agendar primeiro e pagar posteriormente.`;
+          }
+
+          const whatsappUrl = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`;
+          window.open(whatsappUrl, '_blank');
+
+          this.isModalVisible = false;
+          this.$refs.modal.close();
         }
-      }
+      }));
+    });
 
-      document.querySelectorAll(".btn-primary").forEach((button) => {
-        button.addEventListener("click", trackConversion);
+    // Inicializações após o carregamento da página
+    document.addEventListener('DOMContentLoaded', () => {
+      // Inicializa os ícones
+      lucide.createIcons();
+
+      // Inicializa a biblioteca de animações
+      AOS.init({
+        once: true,
+        duration: 600,
+        easing: 'ease-in-out'
       });
 
-      document.addEventListener("alpine:init", () => {
-        Alpine.data("agendamento", () => ({
-          servicoSelecionado: "",
-          nomeCliente: "",
-          dataAgendamento: "",
-          horarioAgendamento: "",
-          isModalVisible: false,
-          today: new Date().toISOString().split("T")[0],
-
-          openModal(servico) {
-            this.servicoSelecionado = servico;
-            this.isModalVisible = true;
-            this.$refs.modal.showModal();
-          },
-
-          handlePreAgendamento() {
-            if (!this.nomeCliente) {
-              alert("Por favor, preencha seu nome.");
-              return;
-            }
-            const numeroWhatsapp = "555199291480";
-            let texto = `Olá, Lucas! Gostaria de fazer um pré-agendamento para ${this.servicoSelecionado}.`;
-            texto += `\n\n*Nome:* ${this.nomeCliente}`;
-            if (this.dataAgendamento)
-              texto += `\n*Data Sugerida:* ${this.dataAgendamento}`;
-            if (this.horarioAgendamento)
-              texto += `\n*Horário Sugerido:* ${this.horarioAgendamento}`;
-
-            const whatsappUrl = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(
-              texto
-            )}`;
-            window.open(whatsappUrl, "_blank");
-
-            this.isModalVisible = false;
-            this.$refs.modal.close();
-          },
-        }));
-        lucide.createIcons();
-        AOS.init({
-          once: true,
-          duration: 600,
-          easing: "ease-in-out",
+      // Suaviza o scroll para âncoras
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
         });
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>

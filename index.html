@@ -74,22 +74,22 @@
       transform: translateY(-20px);
       transition: all 0.4s ease;
     }
-    
+
     .toast.show {
       opacity: 1;
       transform: translateY(0);
     }
-    
+
     .payment-option {
       transition: all 0.3s ease;
       border: 2px solid transparent;
     }
-    
+
     .payment-option:hover {
       transform: scale(1.02);
       border-color: #A69668;
     }
-    
+
     .payment-option.selected {
       border-color: #41590C;
       background-color: rgba(65, 89, 12, 0.05);
@@ -97,8 +97,7 @@
   </style>
 </head>
 
-<body class="bg-[#F2EAE4] text-[#1f2937] antialiased" x-data="app">
-  <!-- CORREÇÃO: Alterado para x-data="app" -->
+<body class="bg-[#F2EAE4] text-[#1f2937] antialiased">
   <div x-data="app">
     <header class="relative flex items-center justify-center h-screen overflow-hidden">
       <div class="absolute inset-0 z-0">
@@ -691,21 +690,15 @@
   <script>
     document.addEventListener('alpine:init', () => {
       Alpine.data('app', () => ({
-        // Dados do modal
-        servicoSelecionado: "",
+        // Dados do componente
         selectedService: null,
         nomeCliente: "",
         dataAgendamento: "",
         horarioAgendamento: "",
         isModalVisible: false,
-        paymentOption: "pay-first", // pay-first ou schedule-first
+        paymentOption: "pay-first",
         today: new Date().toISOString().split('T')[0],
-        toast: {
-          show: false,
-          message: "",
-          type: "success",
-          icon: "check-circle"
-        },
+        toast: { show: false, message: "", type: "success", icon: "check-circle" },
 
         // Horários disponíveis
         timeSlots: [
@@ -714,56 +707,14 @@
           '16:30', '17:00', '17:30', '18:00', '18:30', '19:00'
         ],
 
-        // Lista de serviços com links de pagamento
+        // Lista de serviços atualizada conforme solicitação
         services: [
           {
             name: "Alinhamento de Chakras",
             description: "Método único que combina massagem terapêutica com equilíbrio energético para restauração completa.",
             icon: "sparkles",
             highlight: true,
-            paymentLink: "https://www.asaas.com/c/jcnmpmb4wc8cadms" // Adicionado link
-          },
-          {
-            name: "Massagem Descontraturadora",
-            description: "Liberação de tensões profundas e alívio de dores musculares crônicas com técnicas avançadas.",
-            icon: "armchair",
-            highlight: false,
             paymentLink: "https://www.asaas.com/c/jcnmpmb4wc8cadms"
-          },
-          {
-            name: "Bambuterapia",
-            description: "Técnica com bambus para modelagem corporal, redução de medidas e melhora da circulação.",
-            icon: "feather", // Alterado para feather
-            highlight: false,
-            paymentLink: "https://www.asaas.com/c/jcnmpmb4wc8cadms"
-          },
-          {
-            name: "Massagem Tântrica/Nuru",
-            description: "Técnica que promove conexão profunda e liberação emocional através do toque terapêutico.",
-            icon: "footprints",
-            highlight: false,
-            paymentLink: "https://www.asaas.com/c/ovx5v77xywnfueo6"
-          },
-          {
-            name: "Pedras Quentes",
-            description: "Combinação de massagem com pedras vulcânicas aquecidas para relaxamento profundo.",
-            icon: "thermometer",
-            highlight: false,
-            paymentLink: "https://www.asaas.com/c/jcnmpmb4wc8cadms"
-          },
-          {
-            name: "Reiki (1 hora)",
-            description: "Terapia energética para equilíbrio e harmonização do corpo e mente.",
-            icon: "zap",
-            highlight: false,
-            paymentLink: "https://www.asaas.com/c/kcliyoousfrb8njm"
-          },
-          {
-            name: "Reiki (30 minutos)",
-            description: "Sessão reduzida de Reiki para alívio rápido de estresse e energização.",
-            icon: "zap",
-            highlight: false,
-            paymentLink: "https://www.asaas.com/c/w8so43nozjcsur9d"
           },
           {
             name: "Pacote 5 sessões convencionais",
@@ -785,16 +736,43 @@
             icon: "package",
             highlight: true,
             paymentLink: "https://www.asaas.com/c/hwdbgimygbnj5olv"
-          }
+          },
+          {
+            name: "Massagens Convencionais (R$197)",
+            description: "Escolha entre diversas técnicas: Auriculoterapia, Descontraturadora, Bambuterapia, Drenagem Linfática, Escalda pés, Modeladora, Reflexologia podal, Terapêutica, Ventosaterapia. Você seleciona a técnica após o agendamento.",
+            icon: "list",
+            highlight: false,
+            paymentLink: "https://www.asaas.com/c/jcnmpmb4wc8cadms"
+          },
+          {
+            name: "Massagem Tântrica/Nuru",
+            description: "Técnica que promove conexão profunda e liberação emocional através do toque terapêutico.",
+            icon: "footprints",
+            highlight: false,
+            paymentLink: "https://www.asaas.com/c/ovx5v77xywnfueo6"
+          },
+          {
+            name: "Reiki (1 hora)",
+            description: "Terapia energética para equilíbrio e harmonização do corpo e mente.",
+            icon: "zap",
+            highlight: false,
+            paymentLink: "https://www.asaas.com/c/kcliyoousfrb8njm"
+          },
+          {
+            name: "Reiki (30 minutos)",
+            description: "Sessão reduzida de Reiki para alívio rápido de estresse e energização.",
+            icon: "zap",
+            highlight: false,
+            paymentLink: "https://www.asaas.com/c/w8so43nozjcsur9d"
+          },
         ],
 
         // Funções
         openModal(service) {
           this.selectedService = service;
-          this.servicoSelecionado = service.name;
           this.isModalVisible = true;
           this.$refs.modal.showModal();
-          this.paymentOption = "pay-first"; // Reset para opção padrão
+          this.paymentOption = "pay-first";
         },
 
         showToast(message, type = "success", icon = "check-circle") {
@@ -815,13 +793,27 @@
             this.showToast("Por favor, preencha seu nome.", "error", "alert-circle");
             return;
           }
-          
+
           if (!this.dataAgendamento) {
             this.showToast("Por favor, selecione uma data.", "error", "alert-circle");
             return;
           }
 
           const numeroWhatsapp = "555199291480";
+
+          // Mensagem base para WhatsApp
+          let texto = `Olá, Lucas! Gostaria de fazer um pré-agendamento para ${this.selectedService.name}.`;
+          texto += `\n\n*Nome:* ${this.nomeCliente}`;
+          texto += `\n*Data Sugerida:* ${this.dataAgendamento}`;
+
+          // Adiciona instrução especial para massagens convencionais
+          if (this.selectedService.name.includes("Massagens Convencionais")) {
+            texto += `\n*Técnica:* Escolherei a técnica no WhatsApp.`;
+          }
+
+          if (this.horarioAgendamento) {
+            texto += `\n*Horário Sugerido:* ${this.horarioAgendamento}`;
+          }
 
           // Fluxo: Pagar primeiro
           if (this.paymentOption === "pay-first" && this.selectedService.paymentLink) {
@@ -831,18 +823,7 @@
               "info",
               "credit-card"
             );
-          }
 
-          // Mensagem para WhatsApp em ambos os fluxos
-          let texto = `Olá, Lucas! Gostaria de fazer um pré-agendamento para ${this.servicoSelecionado}.`;
-          texto += `\n\n*Nome:* ${this.nomeCliente}`;
-          texto += `\n*Data Sugerida:* ${this.dataAgendamento}`;
-          
-          if (this.horarioAgendamento) {
-            texto += `\n*Horário Sugerido:* ${this.horarioAgendamento}`;
-          }
-
-          if (this.paymentOption === "pay-first") {
             texto += `\n*Pagamento:* Estou no processo de pagamento e enviarei o comprovante.`;
           } else {
             texto += `\n*Pagamento:* Preferi agendar primeiro e pagar posteriormente.`;
@@ -859,17 +840,9 @@
 
     // Inicializações após o carregamento da página
     document.addEventListener('DOMContentLoaded', () => {
-      // Inicializa os ícones
       lucide.createIcons();
+      AOS.init({ once: true, duration: 600, easing: 'ease-in-out' });
 
-      // Inicializa a biblioteca de animações
-      AOS.init({
-        once: true,
-        duration: 600,
-        easing: 'ease-in-out'
-      });
-
-      // Suaviza o scroll para âncoras
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
           e.preventDefault();
